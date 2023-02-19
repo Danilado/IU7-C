@@ -12,8 +12,8 @@ bool compare_points(double xa, double ya, double xb, double yb)
     return ((fabs(xa - xb) < EPS) && (fabs(ya - yb) < EPS));
 }
 
-double find_area(
-    double xa, double ya, double xb, double yb, double xc, double yc)
+double find_area(double xa, double ya, double xb, // с днём костыля
+double yb, double xc, double yc)
 {
     return fabs((xb - xa) * (yc - ya) - (xc - xa) * (yb - ya)) / 2;
 }
