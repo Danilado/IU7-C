@@ -9,7 +9,7 @@ void divmod(long long a, long long d, long long *q, long long *r)
     *r = 0;
     while (a >= d)
     {
-        *q += 1;
+        ++*q;
         a -= d;
     }
     *r = a;
@@ -23,7 +23,7 @@ int main(void)
     long long q = 0, r = 0;
 
     printf("Введите числитель и знаменатель: ");
-    if (!scanf("%lld%lld", &a, &d) || a <= 0 || d <= 0)
+    if (scanf("%lld%lld", &a, &d) != 2 || a <= 0 || d <= 0)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;

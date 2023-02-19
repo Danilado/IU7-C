@@ -26,8 +26,8 @@ fi
 
 ./app.exe < $1 > /dev/null
 
-if [ $? ]; then
-  exit 1
+if [ ! $? ]; then
+  exit 0
 fi
 
-exit 0
+exit 1
