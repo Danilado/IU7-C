@@ -3,7 +3,7 @@
 
 #define INPUT_ERROR 1
 
-void divmod(int a, int d, int *q, int *r)
+void divmod(long long a, long long d, long long *q, long long *r)
 {
     *q = 0;
     *r = 0;
@@ -19,11 +19,11 @@ void divmod(int a, int d, int *q, int *r)
 
 int main(void)
 {
-    int a, d;
-    int q = 0, r = 0;
+    long long a, d;
+    long long q = 0, r = 0;
 
     printf("Введите числитель и знаменатель: ");
-    if (!scanf("%d%d", &a, &d) || a <= 0 || d <= 0)
+    if (!scanf("%lld%lld", &a, &d) || a <= 0 || d <= 0)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;
@@ -31,7 +31,7 @@ int main(void)
 
     divmod(a, d, &q, &r);
 
-    printf("Целая часть деления: %d\nОстаток от деления: %d\n", q, r);
+    printf("Целая часть деления: %lld\nОстаток от деления: %lld\n", q, r);
 
     return 0;
 }
