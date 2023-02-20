@@ -17,7 +17,7 @@ int main(void)
         return INPUT_ERROR;
     }
 
-    for (long i = 1; n > 0; ++i)
+    for (long i = 1; n >= 0; ++i)
     {
         mul *= (i + n);
 
