@@ -12,8 +12,7 @@ bool compare_points(double xa, double ya, double xb, double yb)
     return ((fabs(xa - xb) < EPS) && (fabs(ya - yb) < EPS));
 }
 
-double find_area(double xa, double ya, double xb, // с днём костыля
-double yb, double xc, double yc)
+double vecmul(double xa, double ya, double xb, double yb, double xc, double yc)
 {
     return fabs((xb - xa) * (yc - ya) - (xc - xa) * (yb - ya)) / 2;
 }
@@ -45,7 +44,7 @@ int main(void)
         return INPUT_ERROR;
     }
 
-    area = find_area(xa, ya, xb, yb, xc, yc);
+    area = vecmul(xa, ya, xb, yb, xc, yc);
 
     if (!isnormal(area))
     {
