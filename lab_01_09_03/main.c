@@ -11,25 +11,27 @@ int main(void)
     double mul = 1, n, answer;
 
     printf("Введите x1: ");
-    for (long i = 1; scanf("%lf", &n) == 1; ++i)
+    if (scanf("%lf", &n) != 1 || n < 0)
     {
-        if (n < 0)
-        {
-            if (i == 1)
-            {
-                printf("Введите хотя бы одно число");
-                return INPUT_ERROR;
-            }
-            break;
-        }
+        printf("Введите хотя бы одно число");
+        return INPUT_ERROR;
+    }
 
+    for (long i = 1; n > 0; ++i)
+    {
         mul *= (i + n);
+
         printf("Введите x%ld: ", i + 1);
+        if (scanf("%lf", &n) != 1)
+        {
+            printf("Ошибка ввода!");
+            return INPUT_ERROR;
+        }
     }
 
     answer = exp(1 / mul);
 
-    printf("Вычисленное значение g(x): %lf", answer);
+    printf("Вычисленное значение g(x): %lf\n", answer);
 
     return 0;
 }
