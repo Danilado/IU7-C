@@ -25,34 +25,15 @@ uint32_t encrypt(uint32_t num)
 
 void print_bin(uint32_t num)
 {
-    uint64_t res1 = 0, res2 = 0;
-    if (num == 0)
+    for (uint64_t mask = 2147483648; mask > 0; mask /= 2)
     {
-        for (int i = 0; i < 32; ++i)
+        if ((uint32_t)(num & mask) == 0)
             printf("0");
-        return;
+        else
+            printf("1");
     }
 
-    for (int i = 0; i < 16; ++i)
-    {
-        res1 += (uint64_t)(num % 2) * (uint64_t)pow(10, i);
-        num /= 2;
-    }
-
-    for (int i = 0; i < 16; ++i)
-    {
-        res2 += (uint64_t)(num % 2) * (uint64_t)pow(10, i);
-        num /= 2;
-
-        printf("%d", (int)(res1 % 10));
-        res1 /= 10;
-    }
-
-    for (int i = 0; i < 16; ++i)
-    {
-        printf("%d", (int)(res2 % 10));
-        res2 /= 10;
-    }
+    return;
 }
 
 int main(void)
@@ -67,8 +48,8 @@ int main(void)
     }
 
     encrypted_num = encrypt(number);
+    printf("Encrypted num: %u\n", encrypted_num);
 
-    // printf("Encrypted num: %u", encrypted_num);
     printf("Result: ");
 
     print_bin(encrypted_num);
