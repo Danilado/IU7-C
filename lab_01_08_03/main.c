@@ -48,7 +48,6 @@ int main(void)
     }
 
     encrypted_num = encrypt(number);
-    printf("Encrypted num: %u\n", encrypted_num);
 
     printf("Result: ");
 
