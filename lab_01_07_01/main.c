@@ -39,23 +39,26 @@ int main(void)
     double absolute_error, relative_error;
 
     printf("Введите значение переменной x: ");
-    if (scanf("%lf", &x) != 1)
+    if (scanf("%lf", &x) == 0)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;
     }
 
     printf("Введите значение переменной eps: ");
-    if (scanf("%lf", &eps) != 1 || eps <= 0 || eps > 1)
+    if (scanf("%lf", &eps) == 0 || eps <= 0 || eps > 1)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;
     }
 
+    // Значение, разумеется, не "идеальное", просто встроенные функции,
+    // как правило, довольно точны.
     perfect_value = sin(x);
     calculated_value = mysin(x, eps);
 
     absolute_error = fabs(perfect_value - calculated_value);
+
     if (fabs(perfect_value) < 1e-8)
         relative_error = 0;
     else

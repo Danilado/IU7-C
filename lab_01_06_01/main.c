@@ -30,32 +30,39 @@ int main(void)
     }
 
     printf("Введите координаты 2-й точки: ");
-    if (scanf("%lf%lf", &xb, &yb) != 2 || compare_points(xa, ya, xb, yb))
+    if (scanf("%lf%lf", &xb, &yb) != 2)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;
     }
 
+    if (compare_points(xa, ya, xb, yb))
+    {
+        printf("Ошибка! Две точки совпадают!");
+        return RUNTIME_ERROR;
+    }
+
     printf("Введите координаты 3-й точки: ");
-    if (scanf("%lf%lf", &xc, &yc) != 2 || compare_points(xa, ya, xc, yc) ||
-        compare_points(xb, yb, xc, yc))
+    if (scanf("%lf%lf", &xc, &yc) != 2)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;
+    }
+
+    if (compare_points(xa, ya, xc, yc) || compare_points(xb, yb, xc, yc))
+    {
+        printf("Ошибка! Две точки совпадают!");
+        return RUNTIME_ERROR;
     }
 
     area = vecmul(xa, ya, xb, yb, xc, yc);
 
-    if (!isnormal(area))
-    {
-        printf("Over/Underflow error");
-        return RUNTIME_ERROR;
-    }
     if (area < EPS)
     {
         printf("Points probably form a line");
         return RUNTIME_ERROR;
     }
+
     printf("Вычисленная площадь треугольника: %.6lf\n", area);
 
     return 0;

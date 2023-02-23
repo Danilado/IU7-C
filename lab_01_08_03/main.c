@@ -26,12 +26,7 @@ uint32_t encrypt(uint32_t num)
 void print_bin(uint32_t num)
 {
     for (uint64_t mask = 2147483648; mask > 0; mask /= 2)
-    {
-        if ((uint32_t)(num & mask) == 0)
-            printf("0");
-        else
-            printf("1");
-    }
+        printf("%d", !!(num & mask));
 
     return;
 }
@@ -41,9 +36,9 @@ int main(void)
     uint32_t number, encrypted_num;
 
     printf("Введите число для шифрования: ");
-    if (scanf("%u", &number) != 1)
+    if (scanf("%u", &number) == 0)
     {
-        printf("Error: Incorrect Input\n");
+        printf("Error: Неправильный ввод!\n");
         return INPUT_ERROR;
     }
 
