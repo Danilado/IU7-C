@@ -19,7 +19,7 @@ int main(void)
     }
 
     printf("Введите угол фи между сторонами треугольника: ");
-    if ((scanf("%lf", &phi) != 1))
+    if (scanf("%lf", &phi) == 0)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
