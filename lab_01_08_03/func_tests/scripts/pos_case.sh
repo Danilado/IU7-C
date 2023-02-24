@@ -42,7 +42,7 @@ if [ ! $? ]; then
   exit 1
 fi
 
-if ./func_tests/scripts/comparator.sh ./out.txt "$2"; then
+if ./func_tests/scripts/comparator.sh ./out.txt "$2" "Result: "; then
   exit 0
 else
   exit 1
