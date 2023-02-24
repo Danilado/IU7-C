@@ -36,7 +36,7 @@ int main(void)
     uint32_t number, encrypted_num;
 
     printf("Введите число для шифрования: ");
-    if (scanf("%u", &number) == 0)
+    if (scanf("%u", &number) != 1)
     {
         printf("Error: Неправильный ввод!\n");
         return INPUT_ERROR;

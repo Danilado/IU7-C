@@ -11,7 +11,7 @@ int count_mul(double *mul)
     double n;
 
     printf("Введите первое значение x: ");
-    if (scanf("%lf", &n) == 0 || n < 0)
+    if (scanf("%lf", &n) != 1 || n < 0)
     {
         printf("Введите хотя-бы одно число!\n");
         return INPUT_ERROR;
@@ -22,7 +22,7 @@ int count_mul(double *mul)
         *mul *= (i + n);
 
         printf("Введите следующее число: ");
-        if (scanf("%lf", &n) == 0)
+        if (scanf("%lf", &n) != 1)
         {
             printf("Ошибка ввода!\n");
             return INPUT_ERROR;

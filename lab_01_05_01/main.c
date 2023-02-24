@@ -25,7 +25,7 @@ int main(void)
     printf("Введите числитель и знаменатель: ");
     if (scanf("%lld%lld", &a, &d) != 2 || a <= 0 || d <= 0)
     {
-        printf("Ошибка ввода!");
+        printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 

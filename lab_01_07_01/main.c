@@ -39,16 +39,16 @@ int main(void)
     double absolute_error, relative_error;
 
     printf("Введите значение переменной x: ");
-    if (scanf("%lf", &x) == 0)
+    if (scanf("%lf", &x) != 1)
     {
-        printf("Ошибка ввода!");
+        printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
     printf("Введите значение переменной eps: ");
-    if (scanf("%lf", &eps) == 0 || eps <= 0 || eps > 1)
+    if (scanf("%lf", &eps) != 1 || eps <= 0 || eps > 1)
     {
-        printf("Ошибка ввода!");
+        printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 

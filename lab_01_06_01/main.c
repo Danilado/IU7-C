@@ -25,20 +25,20 @@ int main(void)
     printf("Введите координаты 1-й точки: ");
     if (scanf("%lf%lf", &xa, &ya) != 2)
     {
-        printf("Ошибка ввода!");
+        printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
     printf("Введите координаты 2-й точки: ");
     if (scanf("%lf%lf", &xb, &yb) != 2)
     {
-        printf("Ошибка ввода!");
+        printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
     if (compare_points(xa, ya, xb, yb))
     {
-        printf("Ошибка! Две точки совпадают!");
+        printf("Ошибка! Две точки совпадают!\n");
         return RUNTIME_ERROR;
     }
 
@@ -51,7 +51,7 @@ int main(void)
 
     if (compare_points(xa, ya, xc, yc) || compare_points(xb, yb, xc, yc))
     {
-        printf("Ошибка! Две точки совпадают!");
+        printf("Ошибка! Две точки совпадают!\n");
         return RUNTIME_ERROR;
     }
 
@@ -59,7 +59,7 @@ int main(void)
 
     if (area < EPS)
     {
-        printf("Points probably form a line");
+        printf("Точки скорее всего стоят на одной прямой!\n");
         return RUNTIME_ERROR;
     }
 

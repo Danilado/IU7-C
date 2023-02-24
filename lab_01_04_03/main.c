@@ -9,7 +9,7 @@ int main(void)
     int mul = 1;
 
     printf("Введите трёхзначное число: ");
-    if (scanf("%d", &number) == 0 || number / 1000 != 0 || number / 100 == 0)
+    if (scanf("%d", &number) != 1 || number / 1000 != 0 || number / 100 == 0)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
