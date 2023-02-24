@@ -12,7 +12,7 @@ int main(void)
     double area;
 
     printf("Введите значения сторон a и b: ");
-    if ((scanf("%lf%lf", &a, &b) != 2 || a <= 0 || b <= 0))
+    if (scanf("%lf%lf", &a, &b) != 2 || a <= 0 || b <= 0)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
