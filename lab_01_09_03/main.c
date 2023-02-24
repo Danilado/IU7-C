@@ -6,15 +6,14 @@
 #define INPUT_ERROR 1
 #define RUNTIME_ERROR 2
 
-// Функция добавлена из-за требования 4 ко второй части лабораторной
 int count_mul(double *mul)
 {
     double n;
 
-    printf("Введите x1: ");
+    printf("Введите первое значение x: ");
     if (scanf("%lf", &n) == 0 || n < 0)
     {
-        printf("Введите хотя бы одно число");
+        printf("Введите хотя-бы одно число!\n");
         return INPUT_ERROR;
     }
 
@@ -25,7 +24,7 @@ int count_mul(double *mul)
         printf("Введите следующее число: ");
         if (scanf("%lf", &n) == 0)
         {
-            printf("Ошибка ввода!");
+            printf("Ошибка ввода!\n");
             return INPUT_ERROR;
         }
     }
