@@ -14,13 +14,24 @@ bool is_equal(double xa, double ya, double xb, double yb)
     return ((fabs(xa - xb) < EPS) && (fabs(ya - yb) < EPS));
 }
 
+// clang-format off
+
+/*
+    Считаем векторное произведение. За векторы беру
+    AB и AC, то есть точка a - точка их начал
+
+    Комментарии, начинающиеся с "clang-format" нужны для
+    управления форматировщиком, который мешает правильно
+    отформатировать объявление функции
+*/
 double vecprod(double xa, double ya, // координаты точки a
-double xb, double yb,                // координаты точки b
-double xc, double yc                 // координаты точки c
-)
+double xb, double yb, // координаты точки b
+double xc, double yc) // координаты точки c
 {
     return fabs((xb - xa) * (yc - ya) - (xc - xa) * (yb - ya));
 }
+
+// clang-format on
 
 int main(void)
 {
