@@ -30,5 +30,3 @@ echo UB SANITIZER
 bash ./build_debug_ubsan.sh
 bash ./func_tests/scripts/func_tests.sh
 echo
-
-bash ./clean.sh
