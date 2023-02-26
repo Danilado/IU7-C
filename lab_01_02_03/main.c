@@ -1,8 +1,9 @@
 #include <math.h>
 #include <stdio.h>
 
+#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
-#define PI acos(-1)
+#define PI acos(-1.0)
 
 int main(void)
 {
@@ -11,22 +12,29 @@ int main(void)
 
     double area;
 
-    printf("Введите значения сторон a и b: ");
-    if (scanf("%lf%lf", &a, &b) != 2 || a <= 0 || b <= 0)
+    printf("Введите значение стороны a: ");
+    if (scanf("%lf", &a) != 1 || a <= 0)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    printf("Введите угол фи между сторонами треугольника: ");
+    printf("Введите значение стороны b: ");
+    if (scanf("%lf", &b) != 1 || b <= 0)
+    {
+        printf("Ошибка ввода!\n");
+        return INPUT_ERROR;
+    }
+
+    printf("Введите угол фи между сторонами треугольника в градусах: ");
     if (scanf("%lf", &phi) != 1)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    area = a * b * sin(phi / 180 * PI) / 2;
+    area = a * b * sin(phi / 180.0 * PI) / 2;
 
-    printf("Вычисленная площадь треугольника: %.6lf\n", area);
-    return 0;
+    printf("Площадь треугольника: %.6lf\n", area);
+    return EVERYTHING_OK;
 }

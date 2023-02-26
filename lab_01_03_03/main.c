@@ -1,35 +1,36 @@
 #include <stdio.h>
 
+#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
 int main(void)
 {
-    double start_speed, acc, time;
+    double start_velocity, acc, time;
     double distance;
 
-    printf("Введите начальную скорость объекта: ");
-    if (scanf("%lf", &start_speed) != 1)
+    printf("Введите начальную скорость: ");
+    if (scanf("%lf", &start_velocity) != 1)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    printf("Введите ускорение объекта: ");
+    printf("Введите ускорение: ");
     if (scanf("%lf", &acc) != 1)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    printf("Введите время движения объекта: ");
+    printf("Введите время движения: ");
     if (scanf("%lf", &time) != 1)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    distance = start_speed * time + acc * time * time / 2;
+    distance = start_velocity * time + acc * time * time / 2;
 
-    printf("Расстояние, пройденное объектом составляет %lf\n", distance);
-    return 0;
+    printf("Пройденное расстояние составляет %.6lf\n", distance);
+    return EVERYTHING_OK;
 }

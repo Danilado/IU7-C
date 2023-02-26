@@ -4,17 +4,22 @@
 #include <stdlib.h>
 
 #define EPS 1e-8
+#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
-#define RUNTIME_ERROR 2
+#define EQUAL_POINTS_ERROR 2
+#define POINTS_FORM_LINE_ERROR 3
 
-bool compare_points(double xa, double ya, double xb, double yb)
+bool is_equal(double xa, double ya, double xb, double yb)
 {
     return ((fabs(xa - xb) < EPS) && (fabs(ya - yb) < EPS));
 }
 
-double vecmul(double xa, double ya, double xb, double yb, double xc, double yc)
+double vecprod(double xa, double ya, // координаты точки a
+double xb, double yb,                // координаты точки b
+double xc, double yc                 // координаты точки c
+)
 {
-    return fabs((xb - xa) * (yc - ya) - (xc - xa) * (yb - ya)) / 2;
+    return fabs((xb - xa) * (yc - ya) - (xc - xa) * (yb - ya));
 }
 
 int main(void)
@@ -22,48 +27,50 @@ int main(void)
     double xa, xb, xc, ya, yb, yc;
     double area;
 
-    printf("Введите координаты 1-й точки: ");
+    printf("Введите координаты точки a: ");
     if (scanf("%lf%lf", &xa, &ya) != 2)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    printf("Введите координаты 2-й точки: ");
+    printf("Введите координаты точки b: ");
     if (scanf("%lf%lf", &xb, &yb) != 2)
     {
         printf("Ошибка ввода!\n");
         return INPUT_ERROR;
     }
 
-    if (compare_points(xa, ya, xb, yb))
+    if (is_equal(xa, ya, xb, yb))
     {
-        printf("Ошибка! Две точки совпадают!\n");
-        return RUNTIME_ERROR;
+        printf("Две точки совпадают!\n");
+        return EQUAL_POINTS_ERROR;
     }
 
-    printf("Введите координаты 3-й точки: ");
+    printf("Введите координаты точки c: ");
     if (scanf("%lf%lf", &xc, &yc) != 2)
     {
         printf("Ошибка ввода!");
         return INPUT_ERROR;
     }
 
-    if (compare_points(xa, ya, xc, yc) || compare_points(xb, yb, xc, yc))
+    if (is_equal(xa, ya, xc, yc) || is_equal(xb, yb, xc, yc))
     {
-        printf("Ошибка! Две точки совпадают!\n");
-        return RUNTIME_ERROR;
+        printf("Две точки совпадают!\n");
+        return EQUAL_POINTS_ERROR;
     }
 
-    area = vecmul(xa, ya, xb, yb, xc, yc);
+    // векторное произведение - площадь параллелограмма
+    // площадь треугольника - площадь параллелограмма пополам
+    area = vecprod(xa, ya, xb, yb, xc, yc) / 2;
 
     if (area < EPS)
     {
-        printf("Точки скорее всего стоят на одной прямой!\n");
-        return RUNTIME_ERROR;
+        printf("Точки стоят на одной прямой!\n");
+        return POINTS_FORM_LINE_ERROR;
     }
 
-    printf("Вычисленная площадь треугольника: %.6lf\n", area);
+    printf("Площадь треугольника: %.6lf\n", area);
 
-    return 0;
+    return EVERYTHING_OK;
 }

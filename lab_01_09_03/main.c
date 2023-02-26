@@ -1,25 +1,25 @@
 #include <math.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
-#define RUNTIME_ERROR 2
+#define ZERO_LENGTH_SEQUENCE 2
 
-int count_mul(double *mul)
+int g_x(double *answer)
 {
-    double n;
+    double n, prod = 1;
 
     printf("Введите первое значение x: ");
     if (scanf("%lf", &n) != 1 || n < 0)
     {
         printf("Введите хотя-бы одно число!\n");
-        return INPUT_ERROR;
+        return ZERO_LENGTH_SEQUENCE;
     }
 
-    for (long i = 1; n >= 0; ++i)
+    for (int i = 1; n >= 0; ++i)
     {
-        *mul *= (i + n);
+        prod *= (i + n);
 
         printf("Введите следующее число: ");
         if (scanf("%lf", &n) != 1)
@@ -29,22 +29,22 @@ int count_mul(double *mul)
         }
     }
 
-    return 0;
+    *answer = exp(1 / prod);
+
+    return EVERYTHING_OK;
 }
 
 int main(void)
 {
-    double mul = 1, answer;
+    double answer;
     int rc;
 
-    rc = count_mul(&mul);
+    rc = g_x(&answer);
 
     if (rc != 0)
         return rc;
 
-    answer = exp(1 / mul);
+    printf("Вычисленное значение g(x): %.6lf\n", answer);
 
-    printf("Вычисленное значение g(x): %lf\n", answer);
-
-    return 0;
+    return EVERYTHING_OK;
 }

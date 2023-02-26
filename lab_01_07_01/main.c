@@ -1,32 +1,28 @@
 #include <math.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 #define RUNTIME_ERROR 2
 
 double mysin(double x, double eps)
 {
     double sum = x;
-    double next_el;
+    double cur_el, next_el;
 
-    double xpow = x;
-    long long divider_fact = 1;
-    bool minus_flag = 1;
+    cur_el = x;
 
-    for (int i = 3; 1; i += 2)
+    // для первой проверки в for
+    next_el = 1;
+
+    // начинаем с 3 и шагаем по 2,
+    // чтобы удобнее считать факториал в знаменателе
+    for (int i = 3; fabs(next_el) >= eps; i += 2)
     {
-        divider_fact *= i * (i - 1);
-        xpow *= x * x;
-
-        next_el = xpow / divider_fact * pow(-1, minus_flag);
+        next_el = -1 * cur_el * x * x / i / (i - 1);
+        cur_el = next_el;
         sum += next_el;
-
-        if (fabs(next_el) < eps)
-            break;
-
-        minus_flag = !minus_flag;
     }
 
     return sum;
@@ -69,5 +65,5 @@ int main(void)
     printf("Абсолютная погрешность: %lf\n", absolute_error);
     printf("Относительная погрешность: %lf\n", relative_error);
 
-    return 0;
+    return EVERYTHING_OK;
 }
