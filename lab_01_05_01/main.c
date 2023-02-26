@@ -7,7 +7,7 @@
 int divide(int a, int d, int *r)
 {
     int q = 0;
-    *r = 0;
+
     while (a >= d)
     {
         ++q;
