@@ -57,9 +57,7 @@ int main(void)
         return EQUAL_POINTS_ERROR;
     }
 
-    // векторное произведение - площадь параллелограмма
-    // площадь треугольника - площадь параллелограмма пополам
-    area = vecprod(xc - xa, yc - ya, xb - xa, yb - ya) / 2;
+    area = vecprod(xb - xa, yc - ya, xc - xa, yb - ya) / 2;
 
     if (area < EPS)
     {
