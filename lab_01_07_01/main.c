@@ -9,20 +9,16 @@
 double mysin(double x, double eps)
 {
     double sum = x;
-    double cur_el, next_el;
+    double cur_el;
 
     cur_el = x;
 
-    // для первой проверки в for
-    next_el = 1;
-
     // начинаем с 3 и шагаем по 2,
     // чтобы удобнее считать факториал в знаменателе
-    for (int i = 3; fabs(next_el) >= eps; i += 2)
+    for (int i = 3; fabs(cur_el) >= eps; i += 2)
     {
-        next_el = -1 * cur_el * x * x / i / (i - 1);
-        cur_el = next_el;
-        sum += next_el;
+        cur_el = -1 * cur_el * x * x / i / (i - 1);
+        sum += cur_el;
     }
 
     return sum;
