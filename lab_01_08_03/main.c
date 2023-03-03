@@ -1,4 +1,5 @@
 #include <inttypes.h>
+#include <limits.h>
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -26,9 +27,13 @@ uint32_t encrypt(uint32_t num)
 
 void print_bin(uint32_t num)
 {
-    for (uint32_t cur_bit = (uint32_t)1 << 31; cur_bit > 0; cur_bit >>= 1)
-        printf("%d", !!(num & cur_bit));
-
+    uint64_t mask = 1;
+    mask <<= sizeof(num) * CHAR_BIT - 1;
+    while (mask > 0)
+    {
+        printf("%d", !!(num & mask));
+        mask >>= 1;
+    }
     return;
 }
 
