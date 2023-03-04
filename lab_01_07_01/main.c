@@ -44,8 +44,6 @@ int main(void)
         return INPUT_ERROR;
     }
 
-    // Значение, разумеется, не "идеальное", просто встроенные функции,
-    // как правило, довольно точны.
     perfect_value = sin(x);
     calculated_value = mysin(x, eps);
 
@@ -57,7 +55,7 @@ int main(void)
         relative_error = absolute_error / fabs(perfect_value);
 
     printf("Вычисленное идеальное значение: %lf\n", perfect_value);
-    printf("Вычисленное через ряд значение: %lf\n", calculated_value);
+    printf("Вычисленное значение ряда: %lf\n", calculated_value);
     printf("Абсолютная погрешность: %lf\n", absolute_error);
     printf("Относительная погрешность: %lf\n", relative_error);
 
