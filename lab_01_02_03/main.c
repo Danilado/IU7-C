@@ -3,7 +3,7 @@
 
 #define EVERYTHING_OK 0
 #define INPUT_ERROR 1
-#define PI acos(-1.0)
+#define PI acos(-1)
 
 int main(void)
 {
@@ -33,7 +33,7 @@ int main(void)
         return INPUT_ERROR;
     }
 
-    area = a * b * sin(phi / 180.0 * PI) / 2;
+    area = a * b * sin(phi / 180 * PI) / 2;
 
     printf("Площадь треугольника: %.6lf\n", area);
     return EVERYTHING_OK;
