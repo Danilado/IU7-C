@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define EPS 1e-8
+
 #define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 #define RUNTIME_ERROR 2
@@ -49,7 +51,7 @@ int main(void)
 
     absolute_error = fabs(perfect_value - calculated_value);
 
-    if (fabs(perfect_value) < 1e-8)
+    if (fabs(perfect_value) < EPS)
         relative_error = 0;
     else
         relative_error = absolute_error / fabs(perfect_value);
