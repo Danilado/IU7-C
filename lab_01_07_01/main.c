@@ -6,7 +6,6 @@
 
 #define EVERYTHING_OK 0
 #define INPUT_ERROR 1
-#define RUNTIME_ERROR 2
 
 double mysin(double x, double eps)
 {
