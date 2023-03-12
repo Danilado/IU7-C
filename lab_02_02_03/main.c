@@ -43,7 +43,7 @@ bool is_armstrong(int n)
     return sum == n;
 }
 
-int filter_armstrong(int a[], int b[], size_t alen)
+size_t filter_armstrong(int a[], int b[], size_t alen)
 {
     size_t blen = 0;
     for (size_t i = 0; i < alen; ++i)
