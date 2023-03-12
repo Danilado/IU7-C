@@ -1,4 +1,8 @@
 #!/bin/bash
 
-gcc -Wall -Werror -Wpedantic -Wextra -std=c99 -c -O3 main.c
-gcc -lm -o app.exe main.o
+gcc main.c \
+-Wall -Werror -Wpedantic -Wextra \
+-std=c99 -c -O3 \
+-o main.o
+
+gcc -lm main.o -o app.exe
