@@ -51,5 +51,5 @@ int main(void)
     printf("Среднее геометрическое положительных элементов массива: ");
     printf("%.6lf\n", geom_mean);
 
-    return 0;
+    return EVERYTHING_OK;
 }

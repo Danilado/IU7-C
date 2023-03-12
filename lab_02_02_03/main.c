@@ -92,5 +92,5 @@ int main(void)
         printf("%d ", o[i]);
     printf("\n");
 
-    return 0;
+    return EVERYTHING_OK;
 }

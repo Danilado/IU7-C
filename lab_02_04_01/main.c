@@ -1,4 +1,5 @@
 #include <inttypes.h>
+#include <stdbool.h>
 #include <stdio.h>
 
 #define NMAX 10
@@ -32,14 +33,20 @@ void insertion_sort(arr a, size_t alen)
 int main(void)
 {
     arr a;
+    double tmp;
     size_t alen = 0;
+    bool full_arr_flag = 0;
 
-    for (size_t i = 0; i < NMAX; ++i)
+    printf("Введите элемент массива: ");
+    for (size_t i = 0; scanf("%lf", &tmp) == 1; ++i)
     {
-
-        printf("Введите элемент массива: ");
-        if (scanf("%lf", &a[i]) != 1)
+        if (alen == NMAX)
+        {
+            full_arr_flag = 1;
             break;
+        }
+        a[i] = tmp;
+        printf("Введите элемент массива: ");
         ++alen;
     }
 
@@ -56,8 +63,8 @@ int main(void)
         printf("%.6lf ", a[i]);
     printf("\n");
 
-    if (alen == 10)
+    if (full_arr_flag)
         return FULL_ARRAY_ERROR;
 
-    return 0;
+    return EVERYTHING_OK;
 }
