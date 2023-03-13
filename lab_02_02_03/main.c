@@ -11,6 +11,34 @@
 
 typedef int arr[NMAX];
 
+size_t scan_len(void)
+{
+    size_t alen;
+    printf("Введите длину массива: ");
+    if (scanf("%zu", &alen) != 1 || alen > 10)
+        return 0;
+
+    return alen;
+}
+
+size_t scan_arr(arr a, size_t alen)
+{
+    for (size_t i = 0; i < alen; ++i)
+    {
+        printf("Введите элемент массива: ");
+        if (scanf("%d", &a[i]) != 1)
+            return i;
+    }
+    return alen;
+}
+
+void print_arr(arr a, size_t alen)
+{
+    for (size_t i = 0; i < alen; ++i)
+        printf("%d ", a[i]);
+    return;
+}
+
 int count_digits(int n)
 {
     if (n == 0)
@@ -62,21 +90,17 @@ int main(void)
     arr a, o;
     size_t alen = 0, olen = 0;
 
-    printf("Введите длину массива: ");
-    if (scanf("%zu", &alen) != 1 || alen <= 0 || alen > 10)
+    alen = scan_len();
+    if (!alen)
     {
-        printf("Ошибка ввода\n");
+        puts("Ошибка ввода");
         return INPUT_ERROR;
     }
 
-    for (size_t i = 0; i < alen; ++i)
+    if (scan_arr(a, alen) != alen)
     {
-        printf("Введите элемент массива: ");
-        if (scanf("%d", &a[i]) != 1)
-        {
-            printf("Ошибка ввода\n");
-            return INPUT_ERROR;
-        }
+        puts("Ошибка ввода");
+        return INPUT_ERROR;
     }
 
     olen = filter_armstrong(a, o, alen);
@@ -88,8 +112,7 @@ int main(void)
     }
 
     printf("Числа Армстронга: ");
-    for (size_t i = 0; i < olen; ++i)
-        printf("%d ", o[i]);
+    print_arr(o, olen);
     printf("\n");
 
     return EVERYTHING_OK;

@@ -8,7 +8,31 @@
 #define EMPTY_ARRAY_ERROR 1
 #define FULL_ARRAY_ERROR 100
 
-typedef double arr[NMAX];
+typedef int arr[NMAX];
+
+size_t scan_arr(arr a)
+{
+    size_t alen = 0;
+    int tmp;
+    printf("Введите элемент массива: ");
+    for (size_t i = 0; scanf("%d", &tmp) == 1; ++i)
+    {
+        if (alen == NMAX)
+            return NMAX + 1;
+
+        a[i] = tmp;
+        printf("Введите элемент массива: ");
+        ++alen;
+    }
+    return alen;
+}
+
+void print_arr(arr a, size_t alen)
+{
+    for (size_t i = 0; i < alen; ++i)
+        printf("%d ", a[i]);
+    return;
+}
 
 void insertion_sort(arr a, size_t alen)
 {
@@ -33,22 +57,10 @@ void insertion_sort(arr a, size_t alen)
 int main(void)
 {
     arr a;
-    double tmp;
     size_t alen = 0;
     bool full_arr_flag = 0;
 
-    printf("Введите элемент массива: ");
-    for (size_t i = 0; scanf("%lf", &tmp) == 1; ++i)
-    {
-        if (alen == NMAX)
-        {
-            full_arr_flag = 1;
-            break;
-        }
-        a[i] = tmp;
-        printf("Введите элемент массива: ");
-        ++alen;
-    }
+    alen = scan_arr(a);
 
     if (!alen)
     {
@@ -56,11 +68,16 @@ int main(void)
         return EMPTY_ARRAY_ERROR;
     }
 
+    if (alen > NMAX)
+    {
+        alen = NMAX;
+        full_arr_flag = 1;
+    }
+
     insertion_sort(a, alen);
 
     printf("Отсортированный массив: ");
-    for (size_t i = 0; i < alen; ++i)
-        printf("%.6lf ", a[i]);
+    print_arr(a, alen);
     printf("\n");
 
     if (full_arr_flag)
