@@ -45,7 +45,7 @@ int main(void)
     double geom_mean;
 
     printf("Введите длину массива: ");
-    if (scanf("%zu", &alen) != 1 || alen > 10)
+    if (scanf("%zu", &alen) != 1 || !alen || alen > 10)
         return INPUT_ERROR;
 
     printf("Введите массив: ");

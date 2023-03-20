@@ -57,7 +57,7 @@ int main(void)
     size_t alen = 0, olen = 0;
 
     printf("Введите длину массива: ");
-    if (scanf("%zu", &alen) != 1 || alen > 10)
+    if (scanf("%zu", &alen) != 1 || !alen || alen > 10)
         return INPUT_ERROR;
 
     if (arr_scan(a, alen) != alen)
