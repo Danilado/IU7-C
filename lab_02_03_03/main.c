@@ -6,30 +6,17 @@
 #define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
-typedef int arr[NMAX];
+typedef int arr_t[NMAX];
 
-size_t scan_len(void)
-{
-    size_t alen;
-    printf("Введите длину массива: ");
-    if (scanf("%zu", &alen) != 1 || alen > 10)
-        return 0;
-
-    return alen;
-}
-
-size_t scan_arr(arr a, size_t alen)
+size_t arr_scan(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
-    {
-        printf("Введите элемент массива: ");
         if (scanf("%d", &a[i]) != 1)
             return i;
-    }
     return alen;
 }
 
-void print_arr(arr a, size_t alen)
+void print_arr(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
         printf("%d ", a[i]);
@@ -48,7 +35,7 @@ int reverse_num(int n)
     return r;
 }
 
-size_t copy_rev_pos(arr a, arr b, size_t alen)
+size_t copy_rev_pos(arr_t a, arr_t b, size_t alen)
 {
     size_t blen = 0;
     for (size_t i = 0; i < alen; ++i)
@@ -66,17 +53,14 @@ size_t copy_rev_pos(arr a, arr b, size_t alen)
 
 int main(void)
 {
-    arr a, o;
+    arr_t a, o;
     size_t alen = 0, olen = 0;
 
-    alen = scan_len();
-    if (!alen)
-    {
-        puts("Ошибка ввода");
+    printf("Введите длину массива: ");
+    if (scanf("%zu", &alen) != 1 || alen > 10)
         return INPUT_ERROR;
-    }
 
-    if (scan_arr(a, alen) != alen)
+    if (arr_scan(a, alen) != alen)
     {
         puts("Ошибка ввода");
         return INPUT_ERROR;

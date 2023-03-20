@@ -9,30 +9,17 @@
 #define INPUT_ERROR 1
 #define NO_ARMSTRONG_NUMBERS_ERROR 2
 
-typedef int arr[NMAX];
+typedef int arr_t[NMAX];
 
-size_t scan_len(void)
-{
-    size_t alen;
-    printf("Введите длину массива: ");
-    if (scanf("%zu", &alen) != 1 || alen > 10)
-        return 0;
-
-    return alen;
-}
-
-size_t scan_arr(arr a, size_t alen)
+size_t arr_scan(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
-    {
-        printf("Введите элемент массива: ");
         if (scanf("%d", &a[i]) != 1)
             return i;
-    }
     return alen;
 }
 
-void print_arr(arr a, size_t alen)
+void print_arr(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
         printf("%d ", a[i]);
@@ -57,21 +44,32 @@ int count_digits(int n)
 bool is_armstrong(int n)
 {
     // Числа армстронга натуральные
-    if (n == 0)
+    if (n <= 0)
         return false;
 
-    int n_copy = n, sum = 0, digc = count_digits(n);
+    // clang-format off
+    // Всего в 32-битном типе int помещается 31 число армстронга
+    int32_t armstrongs[] = {
+    1, 2, 3, 4, 5, 6, 7, 8, 9,
+    153, 370, 371, 407, 1634,
+    8208, 9474, 54748, 92727,
+    93084, 548834, 1741725, 
+    4210818, 9800817, 9926315, 
+    24678050, 24678051, 88593477,
+    146511208, 472335975, 534494836,
+    912985153
+    };
+    const size_t alen = sizeof(armstrongs)/sizeof(armstrongs[0]);
+    // clang-format on
 
-    while (n_copy != 0)
-    {
-        sum += (int)pow((double)(n_copy % 10), (double)digc);
-        n_copy /= 10;
-    }
+    for (size_t i = 0; i < alen; ++i)
+        if (n == armstrongs[i])
+            return true;
 
-    return sum == n;
+    return false;
 }
 
-size_t filter_armstrong(int a[], int b[], size_t alen)
+size_t copy_armstrong(int a[], int b[], size_t alen)
 {
     size_t blen = 0;
     for (size_t i = 0; i < alen; ++i)
@@ -87,23 +85,20 @@ size_t filter_armstrong(int a[], int b[], size_t alen)
 
 int main(void)
 {
-    arr a, o;
+    arr_t a, o;
     size_t alen = 0, olen = 0;
 
-    alen = scan_len();
-    if (!alen)
+    printf("Введите длину массива: ");
+    if (scanf("%zu", &alen) != 1 || alen > 10)
+        return INPUT_ERROR;
+
+    if (arr_scan(a, alen) != alen)
     {
         puts("Ошибка ввода");
         return INPUT_ERROR;
     }
 
-    if (scan_arr(a, alen) != alen)
-    {
-        puts("Ошибка ввода");
-        return INPUT_ERROR;
-    }
-
-    olen = filter_armstrong(a, o, alen);
+    olen = copy_armstrong(a, o, alen);
 
     if (!olen)
     {

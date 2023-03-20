@@ -8,33 +8,31 @@
 #define EMPTY_ARRAY_ERROR 1
 #define FULL_ARRAY_ERROR 100
 
-typedef int arr[NMAX];
+typedef int arr_t[NMAX];
 
-size_t scan_arr(arr a)
+size_t scan_arr(arr_t a)
 {
     size_t alen = 0;
     int tmp;
-    printf("Введите элемент массива: ");
     for (size_t i = 0; scanf("%d", &tmp) == 1; ++i)
     {
         if (alen == NMAX)
             return NMAX + 1;
 
         a[i] = tmp;
-        printf("Введите элемент массива: ");
         ++alen;
     }
     return alen;
 }
 
-void print_arr(arr a, size_t alen)
+void print_arr(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
         printf("%d ", a[i]);
     return;
 }
 
-void insertion_sort(arr a, size_t alen)
+void insertion_sort(arr_t a, size_t alen)
 {
     double tmp;
     size_t j;
@@ -56,10 +54,11 @@ void insertion_sort(arr a, size_t alen)
 
 int main(void)
 {
-    arr a;
+    arr_t a;
     size_t alen = 0;
     bool full_arr_flag = 0;
 
+    printf("Введите маасив: ");
     alen = scan_arr(a);
 
     if (!alen)
