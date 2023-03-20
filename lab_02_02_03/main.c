@@ -60,7 +60,7 @@ bool is_armstrong(int n)
         912985153
     };
 
-    const size_t alen = sizeof(armstrongs)/sizeof(armstrongs[0]);
+    const size_t alen = sizeof(armstrongs) / sizeof(armstrongs[0]);
     // clang-format on
 
     for (size_t i = 0; i < alen; ++i)
