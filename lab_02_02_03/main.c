@@ -70,14 +70,14 @@ bool is_armstrong(int n)
     return false;
 }
 
-size_t copy_armstrong(int rsc[], int dst[], size_t rsclen)
+size_t copy_armstrong(int src[], int dst[], size_t srclen)
 {
     size_t dstlen = 0;
-    for (size_t i = 0; i < rsclen; ++i)
+    for (size_t i = 0; i < srclen; ++i)
     {
-        if (rsc[i] > 0 && is_armstrong(rsc[i]))
+        if (src[i] > 0 && is_armstrong(src[i]))
         {
-            dst[dstlen] = rsc[i];
+            dst[dstlen] = src[i];
             ++dstlen;
         }
     }

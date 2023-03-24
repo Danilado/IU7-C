@@ -35,16 +35,16 @@ int reverse_num(int n)
     return r;
 }
 
-size_t copy_rev_pos(arr_t rsc, arr_t dst, size_t rsclen)
+size_t copy_rev_pos(arr_t src, arr_t dst, size_t srclen)
 {
     size_t dstlen = 0;
-    for (size_t i = 0; i < rsclen; ++i)
+    for (size_t i = 0; i < srclen; ++i)
     {
-        dst[dstlen] = rsc[i];
+        dst[dstlen] = src[i];
         ++dstlen;
-        if (rsc[i] > 0)
+        if (src[i] > 0)
         {
-            dst[dstlen] = reverse_num(rsc[i]);
+            dst[dstlen] = reverse_num(src[i]);
             ++dstlen;
         }
     }
