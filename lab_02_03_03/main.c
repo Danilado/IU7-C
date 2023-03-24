@@ -35,20 +35,20 @@ int reverse_num(int n)
     return r;
 }
 
-size_t copy_rev_pos(arr_t a, arr_t b, size_t alen)
+size_t copy_rev_pos(arr_t rsc, arr_t dst, size_t rsclen)
 {
-    size_t blen = 0;
-    for (size_t i = 0; i < alen; ++i)
+    size_t dstlen = 0;
+    for (size_t i = 0; i < rsclen; ++i)
     {
-        b[blen] = a[i];
-        ++blen;
-        if (a[i] > 0)
+        dst[dstlen] = rsc[i];
+        ++dstlen;
+        if (rsc[i] > 0)
         {
-            b[blen] = reverse_num(a[i]);
-            ++blen;
+            dst[dstlen] = reverse_num(rsc[i]);
+            ++dstlen;
         }
     }
-    return blen;
+    return dstlen;
 }
 
 int main(void)

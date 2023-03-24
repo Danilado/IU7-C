@@ -70,23 +70,23 @@ bool is_armstrong(int n)
     return false;
 }
 
-size_t copy_armstrong(int a[], int b[], size_t alen)
+size_t copy_armstrong(int rsc[], int dst[], size_t rsclen)
 {
-    size_t blen = 0;
-    for (size_t i = 0; i < alen; ++i)
+    size_t dstlen = 0;
+    for (size_t i = 0; i < rsclen; ++i)
     {
-        if (a[i] > 0 && is_armstrong(a[i]))
+        if (rsc[i] > 0 && is_armstrong(rsc[i]))
         {
-            b[blen] = a[i];
-            ++blen;
+            dst[dstlen] = rsc[i];
+            ++dstlen;
         }
     }
-    return blen;
+    return dstlen;
 }
 
 int main(void)
 {
-    arr_t a, o;
+    arr_t a, out;
     size_t alen = 0, olen = 0;
 
     printf("Введите длину массива: ");
@@ -99,7 +99,7 @@ int main(void)
         return INPUT_ERROR;
     }
 
-    olen = copy_armstrong(a, o, alen);
+    olen = copy_armstrong(a, out, alen);
 
     if (!olen)
     {
@@ -108,7 +108,7 @@ int main(void)
     }
 
     printf("Числа Армстронга: ");
-    print_arr(o, olen);
+    print_arr(out, olen);
     printf("\n");
 
     return EVERYTHING_OK;
