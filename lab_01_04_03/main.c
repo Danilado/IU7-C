@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
 int main(void)
@@ -28,5 +27,5 @@ int main(void)
     }
 
     printf("Произведение цифр числа: %d\n", prod);
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

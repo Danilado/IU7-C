@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
 int divide(int a, int d, int *r)
@@ -34,5 +33,5 @@ int main(void)
 
     printf("Целая часть деления: %d\nОстаток от деления: %d\n", q, r);
 
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

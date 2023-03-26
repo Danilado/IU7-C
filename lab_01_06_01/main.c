@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #define EPS 1e-8
-#define EVERYTHING_OK 0
+
 #define INPUT_ERROR 1
 #define EQUAL_POINTS_ERROR 2
 #define POINTS_FORM_LINE_ERROR 3
@@ -21,7 +21,9 @@ double vecprod(double xp, double yp, double xk, double yk)
 
 int main(void)
 {
-    double xa, xb, xc, ya, yb, yc;
+    double xa, ya;
+    double xb, yb;
+    double xc, yc;
     double area;
 
     printf("Введите координаты точки a: ");
@@ -67,5 +69,5 @@ int main(void)
 
     printf("Площадь треугольника: %.6lf\n", area);
 
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

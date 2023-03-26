@@ -3,8 +3,8 @@
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
 // 01010101....
@@ -56,5 +56,5 @@ int main(void)
 
     printf("\n");
 
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

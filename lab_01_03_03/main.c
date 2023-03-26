@@ -1,6 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
 int main(void)
@@ -32,5 +32,5 @@ int main(void)
     distance = start_velocity * time + acc * time * time / 2;
 
     printf("Пройденное расстояние составляет %.6lf\n", distance);
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

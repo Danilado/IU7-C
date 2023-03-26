@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcov main.c
+gcov -r main.c

@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 #define PI acos(-1)
 
@@ -36,5 +36,5 @@ int main(void)
     area = a * b * sin(phi / 180 * PI) / 2;
 
     printf("Площадь треугольника: %.6lf\n", area);
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

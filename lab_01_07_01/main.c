@@ -4,7 +4,6 @@
 
 #define EPS 1e-8
 
-#define EVERYTHING_OK 0
 #define INPUT_ERROR 1
 
 double mysin(double x, double eps)
@@ -18,7 +17,7 @@ double mysin(double x, double eps)
     // чтобы удобнее считать факториал в знаменателе
     for (int i = 3; fabs(cur_el) >= eps; i += 2)
     {
-        cur_el = -1 * cur_el * x * x / i / (i - 1);
+        cur_el *= -x * x / i / (i - 1);
         sum += cur_el;
     }
 
@@ -55,10 +54,10 @@ int main(void)
     else
         relative_error = absolute_error / fabs(perfect_value);
 
-    printf("Вычисленное идеальное значение: %lf\n", perfect_value);
-    printf("Вычисленное значение ряда: %lf\n", calculated_value);
-    printf("Абсолютная погрешность: %lf\n", absolute_error);
-    printf("Относительная погрешность: %lf\n", relative_error);
+    printf("Вычисленное идеальное значение: %.6lf\n", perfect_value);
+    printf("Вычисленное значение ряда: %.6lf\n", calculated_value);
+    printf("Абсолютная погрешность: %.6lf\n", absolute_error);
+    printf("Относительная погрешность: %.6lf\n", relative_error);
 
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }

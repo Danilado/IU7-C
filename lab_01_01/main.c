@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-#define EVERYTHING_OK 0
+#include <stdlib.h>
 
 int main(void)
 {
@@ -9,5 +8,5 @@ int main(void)
     s = 52;
     printf("Year has %d weeks\n", s);
 
-    return EVERYTHING_OK;
+    return EXIT_SUCCESS;
 }
