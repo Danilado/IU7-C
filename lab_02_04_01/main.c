@@ -10,7 +10,7 @@
 
 typedef int arr_t[NMAX];
 
-size_t scan_arr(arr_t a)
+size_t arr_scan(arr_t a)
 {
     size_t alen = 0;
     int tmp;
@@ -25,7 +25,7 @@ size_t scan_arr(arr_t a)
     return alen;
 }
 
-void print_arr(arr_t a, size_t alen)
+void arr_print(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
         printf("%d ", a[i]);
@@ -59,7 +59,7 @@ int main(void)
     bool full_arr_flag = 0;
 
     printf("Введите маасив: ");
-    alen = scan_arr(a);
+    alen = arr_scan(a);
 
     if (!alen)
     {
@@ -76,7 +76,7 @@ int main(void)
     insertion_sort(a, alen);
 
     printf("Отсортированный массив: ");
-    print_arr(a, alen);
+    arr_print(a, alen);
     printf("\n");
 
     if (full_arr_flag)

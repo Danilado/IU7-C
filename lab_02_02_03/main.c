@@ -19,7 +19,7 @@ size_t arr_scan(arr_t a, size_t alen)
     return alen;
 }
 
-void print_arr(arr_t a, size_t alen)
+void arr_print(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
         printf("%d ", a[i]);
@@ -108,7 +108,7 @@ int main(void)
     }
 
     printf("Числа Армстронга: ");
-    print_arr(out, olen);
+    arr_print(out, olen);
     printf("\n");
 
     return EVERYTHING_OK;

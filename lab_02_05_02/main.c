@@ -9,7 +9,7 @@
 
 typedef int arr_t[NMAX];
 
-size_t scan_arr(int *pb, int *pe)
+size_t arr_scan(int *pb, int *pe)
 {
     for (int *pcur = pb; pcur < pe; ++pcur)
     {
@@ -55,7 +55,7 @@ int main(void)
         return INPUT_ERROR;
 
     printf("Введите массив: ");
-    if (scan_arr(pa, pa + alen) != alen)
+    if (arr_scan(pa, pa + alen) != alen)
     {
         printf("Ошибка ввода\n");
         return INPUT_ERROR;

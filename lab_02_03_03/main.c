@@ -16,7 +16,7 @@ size_t arr_scan(arr_t a, size_t alen)
     return alen;
 }
 
-void print_arr(arr_t a, size_t alen)
+void arr_print(arr_t a, size_t alen)
 {
     for (size_t i = 0; i < alen; ++i)
         printf("%d ", a[i]);
@@ -69,7 +69,7 @@ int main(void)
     olen = copy_rev_pos(a, o, alen);
 
     printf("Новый массив: ");
-    print_arr(o, olen);
+    arr_print(o, olen);
     printf("\n");
 
     return EVERYTHING_OK;
