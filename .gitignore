@@ -1,5 +1,13 @@
+# "Предустановленные"
 *.exe
 *.out
 *.o
 *.pch
 *.gch
+
+# Файлы покрытия и тестирования
+out.*
+*.gcov
+*.gcda
+*.gcno
+megatest.sh
