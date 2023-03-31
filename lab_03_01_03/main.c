@@ -14,7 +14,6 @@
 #define COL_COUNT_INPUT_ERROR 3
 #define BAD_COL_COUNT_ERROR 4
 #define MATRIX_EL_INPUT_ERROR 5
-#define NOT_SEQUENCE_ERROR 6
 
 #define NMAX 10
 
@@ -22,6 +21,8 @@ typedef int arr_t[NMAX];
 
 bool is_monotonous(int *ps, int *pe)
 {
+    if (pe - ps < 2)
+        return false;
     // алгоритмически обработка разницы между
     // сосеними элементами сложнее, чем мой способ,
     // т.к. пришлось бы сохранять старый знак, когда
@@ -80,11 +81,6 @@ int main(void)
     {
         puts("Неверно введено количество столбцов");
         return BAD_COL_COUNT_ERROR;
-    }
-    if (columns == 1)
-    {
-        puts("В последовательности должно быть хотя бы два элемента");
-        return NOT_SEQUENCE_ERROR;
     }
 
     printf("Введите матрицу: \n");
