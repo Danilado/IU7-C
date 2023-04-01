@@ -15,12 +15,12 @@
 bool digit_in(int num, int digit)
 {
     num = abs(num);
-    while (num != 0)
+    do
     {
         if (num % 10 == digit)
             return true;
         num /= 10;
-    }
+    } while (num != 0);
     return false;
 }
 
@@ -51,7 +51,7 @@ int main(void)
         puts("Ошибка ввода количества строк");
         return ROW_COUNT_INPUT_ERROR;
     }
-    if (rows == 0 || rows > 10)
+    if (rows == 0 || rows > ROWMAX)
     {
         puts("Неверно введено количество строк");
         return BAD_ROW_COUNT_ERROR;
@@ -62,7 +62,7 @@ int main(void)
         puts("Ошибка ввода количества столбцов");
         return COL_COUNT_INPUT_ERROR;
     }
-    if (columns == 0 || columns > 10)
+    if (columns == 0 || columns > COLMAX)
     {
         puts("Неверно введено количество столбцов");
         return BAD_COL_COUNT_ERROR;
