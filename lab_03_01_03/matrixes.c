@@ -1,7 +1,5 @@
 #include "./matrixes.h"
 
-#include <stdlib.h>
-
 size_t matrix_scan(matrix_t matrix, size_t rows, size_t columns)
 {
     size_t el_count = 0;

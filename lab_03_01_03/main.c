@@ -1,9 +1,4 @@
-/*
-По матрице получить и вывести на экран одномерный массив, присвоив его 𝑘-
-тому элементу значение 1, если выполняется указанное условие, и значение 0 в
-иных случаях: лементы 𝑘-ой строки образуют монотонную последовательность
-*/
-
+#include "./arrays.h"
 #include "./matrixes.h"
 #include <stdbool.h>
 #include <stdio.h>
@@ -14,10 +9,6 @@
 #define COL_COUNT_INPUT_ERROR 3
 #define BAD_COL_COUNT_ERROR 4
 #define MATRIX_EL_INPUT_ERROR 5
-
-#define NMAX 10
-
-typedef int arr_t[NMAX];
 
 bool is_monotonous(int *ps, int *pe)
 {
@@ -45,13 +36,6 @@ void form_answer(arr_t arr, matrix_t matrix, size_t rows, size_t columns)
 {
     for (size_t i = 0; i < rows; ++i)
         arr[i] = is_monotonous(matrix[i], matrix[i] + columns);
-}
-
-void arr_print(int *ps, int *pe)
-{
-    for (int *pcur = ps; pcur < pe; ++pcur)
-        printf("%d ", *pcur);
-    printf("\n");
 }
 
 int main(void)
