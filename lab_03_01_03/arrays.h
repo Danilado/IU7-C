@@ -1,5 +1,5 @@
-#ifndef ARRAYS_H
-#define ARRAYS_H
+#ifndef __ARRAYS_H__
+#define __ARRAYS_H__
 
 #include <stdio.h>
 
