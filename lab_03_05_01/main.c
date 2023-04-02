@@ -92,7 +92,7 @@ int main(void)
 
     if (!numlen)
     {
-        puts("В матрице нет элементов с суммой цифр больше 10");
+        puts("В матрице нет элементов с суммой цифр больше десяти");
         return NO_TEN_DIGIT_SUM_ELS_ERROR;
     }
 
