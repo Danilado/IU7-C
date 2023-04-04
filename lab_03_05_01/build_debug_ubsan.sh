@@ -1,11 +1,8 @@
 #!/bin/bash
 
-for FILE in *.c; do
-  clang "$FILE" \
-  -Wall -Werror -Wpedantic -Wextra -Wvla \
-  -std=c99 -c -Og -g3 \
-  -fsanitize=undefined -fno-omit-frame-pointer \
-  -o "${FILE%.c}.o"
-done
+clang main.c matrixes.c arrays.c \
+-Wall -Werror -Wpedantic -Wextra -Wvla \
+-std=c99 -c -Og -g3 \
+-fsanitize=undefined -fno-omit-frame-pointer
 
-clang -lm -fsanitize=undefined -fno-omit-frame-pointer ./*.o -o app.exe
+clang -lm -fsanitize=undefined -fno-omit-frame-pointer main.o matrixes.o arrays.o -o app.exe

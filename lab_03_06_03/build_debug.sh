@@ -1,11 +1,8 @@
 #!/bin/bash
 
-for FILE in *.c; do
-  gcc "$FILE" \
-  -Wall -Werror -Wpedantic -Wextra -Wvla \
-  -std=c99 -c -Og -g3 \
-  -fprofile-arcs -ftest-coverage \
-  -o "${FILE%.c}.o"
-done
+gcc main.c matrixes.c \
+-Wall -Werror -Wpedantic -Wextra -Wvla \
+-std=c99 -c -Og -g3 \
+-fprofile-arcs -ftest-coverage
 
-gcc -lm -fprofile-arcs -lgcov ./*.o -o app.exe
+gcc -lm -fprofile-arcs -lgcov main.o matrixes.o -o app.exe

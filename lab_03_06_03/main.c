@@ -6,6 +6,7 @@
 #define BAD_ROW_COUNT_ERROR 2
 #define COL_COUNT_INPUT_ERROR 3
 #define BAD_COL_COUNT_ERROR 4
+#define MATRIX_NOT_SQUARE_ERROR 5
 
 void matrix_spiral_fill(matrix_t matrix, size_t rows, size_t columns)
 {
@@ -33,7 +34,7 @@ void matrix_spiral_fill(matrix_t matrix, size_t rows, size_t columns)
 
 int main(void)
 {
-    matrix_t matrix = {{0}};
+    matrix_t matrix;
     size_t rows, columns;
 
     printf("Введите количество строк и столбцов матрицы: ");
@@ -57,6 +58,12 @@ int main(void)
     {
         puts("Неверно введено количество столбцов");
         return BAD_COL_COUNT_ERROR;
+    }
+
+    if (rows != columns)
+    {
+        puts("Не квадратные матрицы не поддерживаются");
+        return MATRIX_NOT_SQUARE_ERROR;
     }
 
     matrix_spiral_fill(matrix, rows, columns);

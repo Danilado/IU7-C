@@ -1,10 +1,7 @@
 #!/bin/bash
 
-for FILE in *.c; do
-  gcc "$FILE" \
-  -Wall -Werror -Wpedantic -Wextra -Wvla \
-  -std=c99 -c -O3 \
-  -o "${FILE%.c}.o"
-done
+gcc main.c matrixes.c arrays.c \
+-Wall -Werror -Wpedantic -Wextra -Wvla \
+-std=c99 -c -O3 \
 
-gcc -lm ./*.o -o app.exe
+gcc -lm main.o matrixes.o arrays.o -o app.exe
