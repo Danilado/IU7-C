@@ -1,4 +1,4 @@
-#include "./arrays.h"
+#include "array.h"
 
 void arr_fill(arr_t dst, size_t num)
 {

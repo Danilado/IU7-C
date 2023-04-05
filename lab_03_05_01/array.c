@@ -1,4 +1,4 @@
-#include "arrays.h"
+#include "array.h"
 
 void arr_shift_left(arr_t arr, size_t alen, int amount)
 {

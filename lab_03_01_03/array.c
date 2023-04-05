@@ -1,4 +1,4 @@
-#include "arrays.h"
+#include "array.h"
 
 void arr_print(int *ps, int *pe)
 {

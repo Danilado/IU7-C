@@ -1,5 +1,5 @@
-#ifndef __MATRIXES_H__
-#define __MATRIXES_H__
+#ifndef __MATRIX_H__
+#define __MATRIX_H__
 
 #include <stdio.h>
 

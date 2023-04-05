@@ -1,7 +1,7 @@
 #!/bin/bash
 
-gcc main.c matrixes.c arrays.c \
+gcc main.c matrix.c array.c \
 -Wall -Werror -Wpedantic -Wextra -Wvla \
--std=c99 -c -O3 \
+-std=c99 -c -O3
 
-gcc -lm main.o matrixes.o arrays.o -o app.exe
+gcc -lm main.o matrix.o array.o -o app.exe

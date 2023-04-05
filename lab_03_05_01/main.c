@@ -1,5 +1,5 @@
-#include "./arrays.h"
-#include "./matrixes.h"
+#include "array.h"
+#include "matrix.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,4 +1,4 @@
-#include "./matrixes.h"
+#include "matrix.h"
 
 size_t matrix_scan(matrix_t matrix, size_t rows, size_t columns)
 {

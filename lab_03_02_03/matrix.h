@@ -1,5 +1,5 @@
-#ifndef __MATRIXES_H__
-#define __MATRIXES_H__
+#ifndef __MATRIX_H__
+#define __MATRIX_H__
 
 #include <stdio.h>
 
@@ -12,3 +12,5 @@ typedef int matrix_t[ROWMAX][COLMAX];
 
 size_t matrix_scan(matrix_t matrix, size_t rows, size_t columns);
 void matrix_print(matrix_t matrix, size_t rows, size_t columns);
+
+size_t matrix_remove_col(matrix_t matrix, size_t rows, size_t cols, size_t col);

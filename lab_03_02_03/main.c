@@ -1,4 +1,4 @@
-#include "./matrixes.h"
+#include "matrix.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
