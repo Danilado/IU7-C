@@ -7,6 +7,6 @@
 
 typedef int arr_t[NMAX];
 
-#endif
+void arr_print(arr_t arr, size_t alen);
 
-void arr_print(int *ps, int *pe);
+#endif

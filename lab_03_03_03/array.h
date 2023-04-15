@@ -7,6 +7,6 @@
 
 typedef int arr_t[NMAX];
 
-#endif
-
 void arr_fill(arr_t dst, size_t num);
+
+#endif

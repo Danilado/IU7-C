@@ -7,6 +7,6 @@
 
 typedef int arr_t[NMAX];
 
-#endif
-
 void arr_shift_left(arr_t arr, size_t alen, int amount);
+
+#endif

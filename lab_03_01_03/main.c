@@ -10,9 +10,9 @@
 #define BAD_COL_COUNT_ERROR 4
 #define MATRIX_EL_INPUT_ERROR 5
 
-bool is_monotonous(int *ps, int *pe)
+bool is_monotonous(arr_t arr, size_t alen)
 {
-    if (pe - ps < 2)
+    if (alen < 2)
         return false;
     // алгоритмически обработка разницы между
     // сосеними элементами сложнее, чем мой способ,
@@ -21,11 +21,11 @@ bool is_monotonous(int *ps, int *pe)
     bool notdec = true;
     bool notinc = true;
 
-    for (int *pcur = ps + 1; (pcur < pe) && (notinc || notdec); ++pcur)
+    for (size_t i = 1; (i < alen) && (notinc || notdec); ++i)
     {
-        if (*(pcur - 1) < *pcur)
+        if (arr[i - 1] < arr[i])
             notinc = false;
-        if (*(pcur - 1) > *pcur)
+        if (arr[i - 1] > arr[i])
             notdec = false;
     }
 
@@ -35,7 +35,7 @@ bool is_monotonous(int *ps, int *pe)
 void form_answer(arr_t arr, matrix_t matrix, size_t rows, size_t columns)
 {
     for (size_t i = 0; i < rows; ++i)
-        arr[i] = is_monotonous(matrix[i], matrix[i] + columns);
+        arr[i] = is_monotonous(matrix[i], columns);
 }
 
 int main(void)
@@ -77,7 +77,7 @@ int main(void)
     form_answer(answer, matrix, rows, columns);
 
     printf("Результат: ");
-    arr_print(answer, answer + rows);
+    arr_print(answer, rows);
 
     return EXIT_SUCCESS;
 }

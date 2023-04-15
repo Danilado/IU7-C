@@ -8,6 +8,6 @@
 
 typedef int matrix_t[ROWMAX][COLMAX];
 
-#endif
-
 void matrix_print(matrix_t matrix, size_t rows, size_t columns);
+
+#endif

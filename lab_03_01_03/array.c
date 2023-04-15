@@ -1,8 +1,8 @@
 #include "array.h"
 
-void arr_print(int *ps, int *pe)
+void arr_print(arr_t arr, size_t alen)
 {
-    for (int *pcur = ps; pcur < pe; ++pcur)
-        printf("%d ", *pcur);
+    for (size_t i = 0; i < alen; ++i)
+        printf("%d ", arr[i]);
     printf("\n");
 }
