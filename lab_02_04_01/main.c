@@ -34,7 +34,7 @@ void arr_print(arr_t a, size_t alen)
 
 void insertion_sort(arr_t a, size_t alen)
 {
-    double tmp;
+    int tmp;
     size_t j;
 
     for (size_t i = 1; i < alen; ++i)

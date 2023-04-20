@@ -33,7 +33,7 @@ double pos_geom_mean(arr_t a, size_t alen)
         }
 
     if (!pos_count)
-        return 0;
+        return -1.0;
 
     return pow(prod, 1.0 / pos_count);
 }
@@ -56,7 +56,7 @@ int main(void)
     }
 
     geom_mean = pos_geom_mean(a, alen);
-    if (!geom_mean)
+    if (geom_mean <= 0.0)
     {
         printf("В массиве нет положительных элементов!\n");
         return NO_POS_ELEMENTS_ERROR;
