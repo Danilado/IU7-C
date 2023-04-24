@@ -10,7 +10,7 @@
 
 void matrix_spiral_fill(matrix_t matrix, size_t rows, size_t columns)
 {
-    int addition = 0;
+    unsigned addition = 0;
     for (size_t i = 0; i < rows / 2 + rows % 2; ++i)
     {
         // Сохраняем кол-во элементов, записанных на следующих слоях
