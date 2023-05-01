@@ -6,7 +6,7 @@ int my_split(word dst[], string src, char *seps)
     int cur_word_len = 0;
     for (char *pcur = src; *pcur != '\0'; ++pcur)
     {
-        if (isspace(*pcur) || strpbrk(pcur, seps) != NULL)
+        if (isspace(*pcur) || strspn(pcur, seps) != 0)
         {
             if (cur_word_len)
             {

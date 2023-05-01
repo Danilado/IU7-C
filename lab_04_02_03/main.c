@@ -11,10 +11,10 @@
 #define LINE_COUNT_ERROR 2
 #define LINE_INPUT_ERROR 3
 #define WORD_TOO_LONG_ERROR 4
-#define NOTHING_TO_OUTPUT_ERROR 5
+#define LINE_TOO_LONG_ERROR 5
+#define NOTHING_TO_OUTPUT_ERROR 6
 // к следующей константе прибавляется до LINES_TO_INPUT - 1
 // в зависимости от строки (не кода), в которой возникла ошибка
-#define LINE_TOO_LONG_ERROR 6
 
 bool is_unique(word w, word arr[], size_t alen)
 {
@@ -29,11 +29,17 @@ bool is_unique(word w, word arr[], size_t alen)
 int input_line(string dst)
 {
     char tmp_string[MAX_STR_LEN + 2];
+
     if (fgets(tmp_string, MAX_STR_LEN + 2, stdin) == NULL)
         return LINE_INPUT_ERROR;
-    if (strlen(tmp_string) > MAX_STR_LEN)
+
+    tmp_string[strcspn(tmp_string, "\n")] = '\0';
+
+    if (strlen(tmp_string) && (strlen(tmp_string) - 1 > MAX_STR_LEN))
         return LINE_TOO_LONG_ERROR;
-    strncpy(dst, tmp_string, MAX_STR_LEN);
+
+    strncpy(dst, tmp_string, MAX_STR_LEN + 1);
+
     return 0;
 }
 
@@ -45,6 +51,7 @@ size_t filter_unique(word dst[], word src[], size_t srclen)
         if (is_unique(src[i], src, srclen))
         {
             strncpy(dst[dstlen], src[i], strlen(src[i]));
+            dst[dstlen][strlen(src[i])] = '\0';
             ++dstlen;
         }
 
@@ -54,9 +61,12 @@ size_t filter_unique(word dst[], word src[], size_t srclen)
 int main(void)
 {
     size_t line_count;
+    char sep_symbol_saver;
 
     if (scanf("%zu", &line_count) != 1)
         return LINE_COUNT_INPUT_ERROR;
+
+    scanf("%c", &sep_symbol_saver);
 
     if (line_count != LINES_TO_INPUT)
         return LINE_COUNT_ERROR;
@@ -75,6 +85,7 @@ int main(void)
 
     for (size_t i = 0; i < line_count; ++i)
     {
+
         int word_count;
         word_count = my_split(words + wlen, lines[i], SEPS);
 
@@ -96,6 +107,8 @@ int main(void)
 
     for (size_t i = 0; i < ans_len; ++i)
         printf("%s ", unique_words[i]);
+
+    printf("\n");
 
     return EXIT_SUCCESS;
 }
