@@ -56,19 +56,37 @@ size_t my_strcspn(const char *s1, const char *s2)
     return ans;
 }
 
+size_t my_strlen(const char *s)
+{
+    char *pcur = (char *)s;
+    while (*pcur != 0)
+        ++pcur;
+
+    return pcur - s;
+}
+
 char *my_strchr(const char *s, int c)
 {
-    for (char *pcur = (char *)s; pcur == s || *(pcur - 1) != '\0'; ++pcur)
+    if (c == 0)
+        return (char *)s + my_strlen(s);
+
+    for (char *pcur = (char *)s; *pcur != '\0'; ++pcur)
         if (*pcur == c)
+        {
             return pcur;
+            break;
+        }
 
     return NULL;
 }
 
 char *my_strrchr(const char *s, int c)
 {
+    if (c == 0)
+        return (char *)s + my_strlen(s);
+
     char *result_pointer = NULL;
-    for (char *pcur = (char *)s; pcur == s || *(pcur - 1) != '\0'; ++pcur)
+    for (char *pcur = (char *)s; *pcur != '\0'; ++pcur)
         if (*pcur == c)
             result_pointer = pcur;
 

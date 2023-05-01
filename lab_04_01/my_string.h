@@ -12,6 +12,6 @@ size_t my_strcspn(const char *s1, const char *s2);
 char *my_strchr(const char *s, int c);
 char *my_strrchr(const char *s, int c);
 
-typedef char string[MAX_STR_LEN];
+typedef char string[MAX_STR_LEN + 1];
 
 #endif

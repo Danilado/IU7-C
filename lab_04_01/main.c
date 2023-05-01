@@ -6,8 +6,8 @@
 #define STRPBRK_TESTS_N 7
 #define STRSPN_TESTS_N 6
 #define STRCSPN_TESTS_N 6
-#define STRCHR_TESTS_N 6
-#define STRRCHR_TESTS_N 6
+#define STRCHR_TESTS_N 5
+#define STRRCHR_TESTS_N 5
 
 int test_strpbrk(char *s1_arr[], char *s2_arr[], size_t alen)
 {
@@ -24,15 +24,13 @@ int test_strpbrk(char *s1_arr[], char *s2_arr[], size_t alen)
     {
         char *myres = my_strpbrk(s1_arr[i], s2_arr[i]);
         char *stdres = strpbrk(s1_arr[i], s2_arr[i]);
-        // clang-format off
-        if (myres != stdres || 
-        strcmp(s1_arr[i], s1_arr_save[i]) != 0 ||
-        strcmp(s2_arr[i], s2_arr_save[i]) != 0)
+
+        if (myres != stdres || strcmp(s1_arr[i], s1_arr_save[i]) != 0 ||
+            strcmp(s2_arr[i], s2_arr_save[i]) != 0)
         {
             ++fail_count;
             continue;
         }
-        // clang-format on
     }
 
     return fail_count;
@@ -53,15 +51,13 @@ int test_strspn(char *s1_arr[], char *s2_arr[], size_t alen)
     {
         size_t myres = my_strspn(s1_arr[i], s2_arr[i]);
         size_t stdres = strspn(s1_arr[i], s2_arr[i]);
-        // clang-format off
-        if (myres != stdres || 
-        strcmp(s1_arr[i], s1_arr_save[i]) != 0 ||
-        strcmp(s2_arr[i], s2_arr_save[i]) != 0)
+
+        if (myres != stdres || strcmp(s1_arr[i], s1_arr_save[i]) != 0 ||
+            strcmp(s2_arr[i], s2_arr_save[i]) != 0)
         {
             ++fail_count;
             continue;
         }
-        // clang-format on
     }
 
     return fail_count;
@@ -82,15 +78,13 @@ int test_strcspn(char *s1_arr[], char *s2_arr[], size_t alen)
     {
         size_t myres = my_strcspn(s1_arr[i], s2_arr[i]);
         size_t stdres = strcspn(s1_arr[i], s2_arr[i]);
-        // clang-format off
-        if (myres != stdres || 
-        strcmp(s1_arr[i], s1_arr_save[i]) != 0 ||
-        strcmp(s2_arr[i], s2_arr_save[i]) != 0)
+
+        if (myres != stdres || strcmp(s1_arr[i], s1_arr_save[i]) != 0 ||
+            strcmp(s2_arr[i], s2_arr_save[i]) != 0)
         {
             ++fail_count;
             continue;
         }
-        // clang-format on
     }
 
     return fail_count;
@@ -111,15 +105,13 @@ int test_strchr(char *s_arr[], int c_arr[], size_t alen)
     {
         char *myres = my_strchr(s_arr[i], c_arr[i]);
         char *stdres = strchr(s_arr[i], c_arr[i]);
-        // clang-format off
-        if (myres != stdres || 
-        strcmp(s_arr[i], s_arr_save[i]) != 0 ||
-        c_arr[i] != c_arr_save[i])
+
+        if (myres != stdres || strcmp(s_arr[i], s_arr_save[i]) != 0 ||
+            c_arr[i] != c_arr_save[i])
         {
             ++fail_count;
             continue;
         }
-        // clang-format on
     }
 
     return fail_count;
@@ -140,15 +132,13 @@ int test_strrchr(char *s_arr[], int c_arr[], size_t alen)
     {
         char *myres = my_strrchr(s_arr[i], c_arr[i]);
         char *stdres = strrchr(s_arr[i], c_arr[i]);
-        // clang-format off
-        if (myres != stdres || 
-        strcmp(s_arr[i], s_arr_save[i]) != 0 ||
-        c_arr[i] != c_arr_save[i])
+
+        if (myres != stdres || strcmp(s_arr[i], s_arr_save[i]) != 0 ||
+            c_arr[i] != c_arr_save[i])
         {
             ++fail_count;
             continue;
         }
-        // clang-format on
     }
 
     return fail_count;
@@ -160,23 +150,18 @@ int main(void)
 
     { // strpbrk
         char *spbrk_t1[] = {
-        "jwnfoibwfibiqbfplwdq",
-        "mama papa ya",
-        "wow a line\nbreak",
-        "Я Русский!",
-        "",
-        "smth",
-        "",
+            "jwnfoibwfibiqbfplwdq",
+            "mama papa ya",
+            "wow a line\nbreak",
+            "Я Русский!",
+            "",
+            "smth",
+            "",
         };
 
         char *spbrk_t2[] = {
-        "123bvn",
-        " ",
-        "\n",
-        "Я иду до конца!",
-        "fknwelfbwepidnaknpierb",
-        "",
-        "",
+            "123bvn", " ", "\n", "Я иду до конца!", "fknwelfbwepidnaknpierb",
+            "",       "",
         };
 
         int strpbrk_fails = test_strpbrk(spbrk_t1, spbrk_t2, STRPBRK_TESTS_N);
@@ -187,21 +172,16 @@ int main(void)
 
     { // strspn
         char *sspn_t1[] = {
-        "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
-        "982716283056023409370938147587306",
-        "Я снова Русский.",
-        "skfskfj",
-        "",
-        "",
+            "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
+            "982716283056023409370938147587306",
+            "Я снова Русский.",
+            "skfskfj",
+            "",
+            "",
         };
 
         char *sspn_t2[] = {
-        "qnwirbkfdsbj",
-        "12345",
-        "Это ли не прекрасно?",
-        "",
-        "qkjdbqd",
-        "",
+            "qnwirbkfdsbj", "12345", "Это ли не прекрасно?", "", "qkjdbqd", "",
         };
 
         int strspn_fails = test_strspn(sspn_t1, sspn_t2, STRSPN_TESTS_N);
@@ -212,21 +192,16 @@ int main(void)
 
     { // strcspn
         char *scspn_t1[] = {
-        "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
-        "982716283056023409370938147587306",
-        "Я снова Русский.",
-        "skfskfj",
-        "",
-        "",
+            "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
+            "982716283056023409370938147587306",
+            "Я снова Русский.",
+            "skfskfj",
+            "",
+            "",
         };
 
         char *scspn_t2[] = {
-        "qnwirbkfdsbj",
-        "12345",
-        "Это ли не прекрасно?",
-        "",
-        "qkjdbqd",
-        "",
+            "qnwirbkfdsbj", "12345", "Это ли не прекрасно?", "", "qkjdbqd", "",
         };
 
         int strcspn_fails = test_strcspn(scspn_t1, scspn_t2, STRCSPN_TESTS_N);
@@ -237,19 +212,15 @@ int main(void)
 
     { // strchr
         char *schr_t1[] = {
-        "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
-        "982716283056023409370938147587306",
-        "skfskfj",
-        "",
-        "",
+            "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
+            "982716283056023409370938147587306",
+            "skfskfj",
+            "",
+            "",
         };
 
         int schr_t2[] = {
-        'w',
-        '3',
-        'f',
-        '1',
-        '\0',
+            'w', '3', 'f', '1', '\0',
         };
 
         int strchr_fails = test_strchr(schr_t1, schr_t2, STRCHR_TESTS_N);
@@ -260,19 +231,15 @@ int main(void)
 
     { // strrchr
         char *srchr_t1[] = {
-        "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
-        "982716283056023409370938147587306",
-        "skfskfj",
-        "",
-        "",
+            "qkrblbf 9lwbqf;fw mew;njgb/dpojqfpdskbcsm sc",
+            "982716283056023409370938147587306",
+            "skfskfj",
+            "",
+            "",
         };
 
         int srchr_t2[] = {
-        'w',
-        '3',
-        'f',
-        '1',
-        '\0',
+            'w', '3', 'f', '1', '\0',
         };
 
         int strrchr_fails = test_strrchr(srchr_t1, srchr_t2, STRRCHR_TESTS_N);
