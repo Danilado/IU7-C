@@ -10,20 +10,20 @@
 #define LINE_COUNT_INPUT_ERROR 1
 #define LINE_COUNT_ERROR 2
 #define LINE_INPUT_ERROR 3
-#define WORD_TOO_LONG_ERROR 4
-#define LINE_TOO_LONG_ERROR 5
-#define NOTHING_TO_OUTPUT_ERROR 6
+#define LINE_TOO_LONG_ERROR 4
+#define NOTHING_TO_OUTPUT_ERROR 5
 // к следующей константе прибавляется до LINES_TO_INPUT - 1
 // в зависимости от строки (не кода), в которой возникла ошибка
+#define WORD_TOO_LONG_ERROR 6
 
-bool is_unique(word w, word arr[], size_t alen)
+size_t count_occurances(word w, word arr[], size_t alen)
 {
-    int counter = 0;
+    size_t counter = 0;
     for (size_t i = 0; i < alen; ++i)
         if (strcmp(w, arr[i]) == 0)
             ++counter;
 
-    return counter == 1;
+    return counter;
 }
 
 int input_line(string dst)
@@ -43,16 +43,22 @@ int input_line(string dst)
     return 0;
 }
 
-size_t filter_unique(word dst[], word src[], size_t srclen)
+size_t filter_unique(word dst[], word src[][MAX_STR_LEN / 2], size_t srclens[])
 {
     size_t dstlen = 0;
 
-    for (size_t i = 0; i < srclen; ++i)
-        if (is_unique(src[i], src, srclen))
+    for (size_t i = 0; i < LINES_TO_INPUT; ++i)
+        for (size_t j = 0; j < srclens[i]; ++j)
         {
-            strncpy(dst[dstlen], src[i], strlen(src[i]));
-            dst[dstlen][strlen(src[i])] = '\0';
-            ++dstlen;
+            size_t occurances = 0;
+            for (size_t k = 0; k < LINES_TO_INPUT; ++k)
+                occurances += count_occurances(src[i][j], src[k], srclens[k]);
+            if (occurances == 1)
+            {
+                strncpy(dst[dstlen], src[i][j], strlen(src[i][j]));
+                dst[dstlen][strlen(src[i][j])] = '\0';
+                ++dstlen;
+            }
         }
 
     return dstlen;
@@ -80,25 +86,24 @@ int main(void)
             return rc;
     }
 
-    word words[LINES_TO_INPUT * MAX_STR_LEN / 2];
-    size_t wlen = 0;
+    word words_in_lines[LINES_TO_INPUT][MAX_STR_LEN / 2];
+    size_t wlens[LINES_TO_INPUT];
 
     for (size_t i = 0; i < line_count; ++i)
     {
-
         int word_count;
-        word_count = my_split(words + wlen, lines[i], SEPS);
+        word_count = my_split(words_in_lines[i], lines[i], SEPS);
 
         if (word_count < 0)
             return WORD_TOO_LONG_ERROR + i;
 
-        wlen += word_count;
+        wlens[i] = word_count;
     }
 
     word unique_words[LINES_TO_INPUT * MAX_STR_LEN / 2];
     size_t ans_len = 0;
 
-    ans_len = filter_unique(unique_words, words, wlen);
+    ans_len = filter_unique(unique_words, words_in_lines, wlens);
 
     if (!ans_len)
         return NOTHING_TO_OUTPUT_ERROR;
