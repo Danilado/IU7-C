@@ -13,7 +13,7 @@
 #define LINE_TOO_LONG_ERROR 4
 #define NOTHING_TO_OUTPUT_ERROR 5
 // к следующей константе прибавляется до LINES_TO_INPUT - 1
-// в зависимости от строки (не кода), в которой возникла ошибка
+// в зависимости от строки u(не кода), в которой возникла ошибка
 #define WORD_TOO_LONG_ERROR 6
 
 size_t count_occurances(word w, word arr[], size_t alen)
@@ -108,10 +108,10 @@ int main(void)
     if (!ans_len)
         return NOTHING_TO_OUTPUT_ERROR;
 
-    printf("Result: ");
+    printf("Result:");
 
     for (size_t i = 0; i < ans_len; ++i)
-        printf("%s ", unique_words[i]);
+        printf(" %s", unique_words[i]);
 
     printf("\n");
 
