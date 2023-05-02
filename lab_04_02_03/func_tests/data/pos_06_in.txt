@@ -1,3 +1,2 @@
-2
 words    separated,;by-different
 ---;.separators ,.;: idk
