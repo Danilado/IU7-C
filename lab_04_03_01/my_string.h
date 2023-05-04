@@ -11,6 +11,6 @@
 typedef char string_t[MAX_STR_LEN + 1];
 typedef char word_t[MAX_WORD_LEN + 1];
 
-int my_strip(word_t dst[], string_t src, char *sep);
+int my_split(word_t dst[], string_t src, char *sep);
 
 #endif

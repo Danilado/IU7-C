@@ -1,6 +1,6 @@
 #include "my_string.h"
 
-int my_strip(word_t dst[], string_t src, char *seps)
+int my_split(word_t dst[], string_t src, char *seps)
 {
     int word_count = 0;
     char *token = strtok(src, seps);
