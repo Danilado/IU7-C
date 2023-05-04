@@ -41,17 +41,16 @@ int input_line(string_t dst)
     return 0;
 }
 
-size_t filter_unique(word_t dst[], word_t src[][MAX_STR_LEN / 2],
-                     size_t srclens[])
+size_t filter_unique(word_t dst[], word_t src[][MAX_STR_LEN / 2], size_t srcl[])
 {
     size_t dstlen = 0;
 
     for (size_t i = 0; i < LINES_TO_INPUT; ++i)
-        for (size_t j = 0; j < srclens[i]; ++j)
+        for (size_t j = 0; j < srcl[i]; ++j)
         {
             size_t occurances = 0;
             for (size_t k = 0; k < LINES_TO_INPUT; ++k)
-                occurances += count_occurances(src[i][j], src[k], srclens[k]);
+                occurances += count_occurances(src[i][j], src[k], srcl[k]);
             if (occurances == 1)
             {
                 strncpy(dst[dstlen], src[i][j], strlen(src[i][j]));
