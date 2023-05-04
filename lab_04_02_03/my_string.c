@@ -1,6 +1,6 @@
 #include "my_string.h"
 
-int my_split(word dst[], string src, char *seps)
+int my_split(word_t dst[], string_t src, char *seps)
 {
     int words_len = 0;
     int cur_word_len = 0;

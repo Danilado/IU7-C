@@ -1,5 +1,5 @@
-#ifndef MY_STRING
-#define MY_STRING
+#ifndef MY_STRING_H
+#define MY_STRING_H
 
 #include <stdbool.h>
 #include <stdlib.h>
@@ -12,6 +12,6 @@ size_t my_strcspn(const char *s1, const char *s2);
 char *my_strchr(const char *s, int c);
 char *my_strrchr(const char *s, int c);
 
-typedef char string[MAX_STR_LEN + 1];
+typedef char string_t[MAX_STR_LEN + 1];
 
 #endif

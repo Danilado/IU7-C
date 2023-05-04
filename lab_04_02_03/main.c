@@ -14,7 +14,7 @@
 // в зависимости от строки (не кода), в которой возникла ошибка
 #define WORD_TOO_LONG_ERROR 4
 
-size_t count_occurances(word w, word arr[], size_t alen)
+size_t count_occurances(word_t w, word_t arr[], size_t alen)
 {
     size_t counter = 0;
     for (size_t i = 0; i < alen; ++i)
@@ -24,7 +24,7 @@ size_t count_occurances(word w, word arr[], size_t alen)
     return counter;
 }
 
-int input_line(string dst)
+int input_line(string_t dst)
 {
     char tmp_string[MAX_STR_LEN + 2];
 
@@ -33,7 +33,7 @@ int input_line(string dst)
 
     tmp_string[strcspn(tmp_string, "\n")] = '\0';
 
-    if (strlen(tmp_string) && (strlen(tmp_string) - 1 > MAX_STR_LEN))
+    if (strlen(tmp_string) && (strlen(tmp_string) > MAX_STR_LEN))
         return LINE_TOO_LONG_ERROR;
 
     strncpy(dst, tmp_string, MAX_STR_LEN + 1);
@@ -41,7 +41,8 @@ int input_line(string dst)
     return 0;
 }
 
-size_t filter_unique(word dst[], word src[][MAX_STR_LEN / 2], size_t srclens[])
+size_t filter_unique(word_t dst[], word_t src[][MAX_STR_LEN / 2],
+                     size_t srclens[])
 {
     size_t dstlen = 0;
 
@@ -64,7 +65,7 @@ size_t filter_unique(word dst[], word src[][MAX_STR_LEN / 2], size_t srclens[])
 
 int main(void)
 {
-    string lines[LINES_TO_INPUT];
+    string_t lines[LINES_TO_INPUT];
 
     for (size_t i = 0; i < LINES_TO_INPUT; ++i)
     {
@@ -73,7 +74,7 @@ int main(void)
             return rc;
     }
 
-    word words_in_lines[LINES_TO_INPUT][MAX_STR_LEN / 2];
+    word_t words_in_lines[LINES_TO_INPUT][MAX_STR_LEN / 2];
     size_t wlens[LINES_TO_INPUT];
 
     for (size_t i = 0; i < LINES_TO_INPUT; ++i)
@@ -87,7 +88,7 @@ int main(void)
         wlens[i] = word_count;
     }
 
-    word unique_words[LINES_TO_INPUT * MAX_STR_LEN / 2];
+    word_t unique_words[LINES_TO_INPUT * MAX_STR_LEN / 2];
     size_t ans_len = 0;
 
     ans_len = filter_unique(unique_words, words_in_lines, wlens);

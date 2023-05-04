@@ -12,8 +12,8 @@
 int test_strpbrk(char *s1_arr[], char *s2_arr[], size_t alen)
 {
     int fail_count = 0;
-    string s1_arr_save[NMAX];
-    string s2_arr_save[NMAX];
+    string_t s1_arr_save[NMAX];
+    string_t s2_arr_save[NMAX];
     for (size_t i = 0; i < alen; ++i)
     {
         strncpy(s1_arr_save[i], s1_arr[i], MAX_STR_LEN);
@@ -39,8 +39,8 @@ int test_strpbrk(char *s1_arr[], char *s2_arr[], size_t alen)
 int test_strspn(char *s1_arr[], char *s2_arr[], size_t alen)
 {
     int fail_count = 0;
-    string s1_arr_save[NMAX];
-    string s2_arr_save[NMAX];
+    string_t s1_arr_save[NMAX];
+    string_t s2_arr_save[NMAX];
     for (size_t i = 0; i < alen; ++i)
     {
         strncpy(s1_arr_save[i], s1_arr[i], MAX_STR_LEN);
@@ -66,8 +66,8 @@ int test_strspn(char *s1_arr[], char *s2_arr[], size_t alen)
 int test_strcspn(char *s1_arr[], char *s2_arr[], size_t alen)
 {
     int fail_count = 0;
-    string s1_arr_save[NMAX];
-    string s2_arr_save[NMAX];
+    string_t s1_arr_save[NMAX];
+    string_t s2_arr_save[NMAX];
     for (size_t i = 0; i < alen; ++i)
     {
         strncpy(s1_arr_save[i], s1_arr[i], MAX_STR_LEN);
@@ -93,7 +93,7 @@ int test_strcspn(char *s1_arr[], char *s2_arr[], size_t alen)
 int test_strchr(char *s_arr[], int c_arr[], size_t alen)
 {
     int fail_count = 0;
-    string s_arr_save[NMAX];
+    string_t s_arr_save[NMAX];
     int c_arr_save[NMAX];
     for (size_t i = 0; i < alen; ++i)
     {
@@ -120,7 +120,7 @@ int test_strchr(char *s_arr[], int c_arr[], size_t alen)
 int test_strrchr(char *s_arr[], int c_arr[], size_t alen)
 {
     int fail_count = 0;
-    string s_arr_save[NMAX];
+    string_t s_arr_save[NMAX];
     int c_arr_save[NMAX];
     for (size_t i = 0; i < alen; ++i)
     {
