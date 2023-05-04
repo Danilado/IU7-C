@@ -61,7 +61,7 @@ int main(void)
         return rc;
 
     word_t words[MAX_STR_LEN / 2];
-    int wlen = my_strip(words, line, SEPS);
+    int wlen = my_split(words, line, SEPS);
 
     if (wlen < 0)
         return WORD_TOO_LONG_ERROR;
