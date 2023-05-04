@@ -13,7 +13,7 @@
 
 void remove_dub_chars(word_t word)
 {
-    word_t tmp = {'\0'};
+    word_t tmp = "";
     for (char *pcur = word; *pcur != '\0'; ++pcur)
         if (strspn(pcur, tmp) == 0)
             strncat(tmp, pcur, 1);
@@ -40,7 +40,7 @@ int input_line(string_t dst)
 
 int main(void)
 {
-    string_t line, ans = {'\0'};
+    string_t line, ans = "";
 
     int rc = input_line(line);
     if (rc)
