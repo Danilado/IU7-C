@@ -7,26 +7,7 @@
 #define SPACE_SYMBOLS " \t"
 #define DIGITS "0123456789"
 
-#define LINE_INPUT_ERROR 1
-#define LINE_TOO_LONG_ERROR 2
 #define EMPTY_STRING_ERROR 3
-
-int input_line(string_t dst)
-{
-    char tmp_string[MAX_STR_LEN + 2];
-
-    if (fgets(tmp_string, MAX_STR_LEN + 2, stdin) == NULL)
-        return LINE_INPUT_ERROR;
-
-    tmp_string[strcspn(tmp_string, "\n")] = '\0';
-
-    if (strlen(tmp_string) && (strlen(tmp_string) > MAX_STR_LEN))
-        return LINE_TOO_LONG_ERROR;
-
-    strncpy(dst, tmp_string, MAX_STR_LEN + 1);
-
-    return 0;
-}
 
 bool is_phone_number(char *str)
 {
@@ -39,7 +20,6 @@ bool is_phone_number(char *str)
     ++pcur;
 
     tmp = strspn(pcur, DIGITS);
-
     if (!tmp)
         return false;
 
@@ -54,7 +34,6 @@ bool is_phone_number(char *str)
     ++pcur;
 
     tmp = strspn(pcur, DIGITS);
-
     if (tmp != 3)
         return false;
 
@@ -90,17 +69,15 @@ bool is_phone_number(char *str)
 
 int main(void)
 {
-    string_t line, tel;
+    string_t line, tel = "";
 
     int rc = input_line(line);
     if (rc)
         return rc;
 
-    rc = my_strip(tel, line, SPACE_SYMBOLS);
-    if (rc)
-        return EMPTY_STRING_ERROR;
+    my_strip(tel, line, SPACE_SYMBOLS);
 
-    if (is_phone_number(tel))
+    if (strlen(tel) && (is_phone_number(tel)))
         printf("YES");
     else
         printf("NO");
