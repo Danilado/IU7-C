@@ -72,10 +72,7 @@ char *my_strchr(const char *s, int c)
 
     for (char *pcur = (char *)s; *pcur != '\0'; ++pcur)
         if (*pcur == c)
-        {
             return pcur;
-            break;
-        }
 
     return NULL;
 }

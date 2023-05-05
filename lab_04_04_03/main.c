@@ -7,8 +7,6 @@
 #define SPACE_SYMBOLS " \t"
 #define DIGITS "0123456789"
 
-#define EMPTY_STRING_ERROR 3
-
 bool is_phone_number(char *str)
 {
     char *pcur = str;

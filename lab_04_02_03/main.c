@@ -7,8 +7,6 @@
 #define LINES_TO_INPUT 2
 #define SEPS ",;:-.!?"
 
-#define LINE_INPUT_ERROR 1
-#define LINE_TOO_LONG_ERROR 2
 #define NOTHING_TO_OUTPUT_ERROR 3
 // к следующей константе прибавляется до LINES_TO_INPUT - 1
 // в зависимости от строки (не кода), в которой возникла ошибка
@@ -22,23 +20,6 @@ size_t count_occurances(word_t w, word_t arr[], size_t alen)
             ++counter;
 
     return counter;
-}
-
-int input_line(string_t dst)
-{
-    char tmp_string[MAX_STR_LEN + 2];
-
-    if (fgets(tmp_string, MAX_STR_LEN + 2, stdin) == NULL)
-        return LINE_INPUT_ERROR;
-
-    tmp_string[strcspn(tmp_string, "\n")] = '\0';
-
-    if (strlen(tmp_string) && (strlen(tmp_string) > MAX_STR_LEN))
-        return LINE_TOO_LONG_ERROR;
-
-    strncpy(dst, tmp_string, MAX_STR_LEN + 1);
-
-    return 0;
 }
 
 size_t filter_unique(word_t dst[], word_t src[][MAX_STR_LEN / 2], size_t srcl[])
