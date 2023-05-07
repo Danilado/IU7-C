@@ -12,16 +12,20 @@ bool is_phone_number(char *str)
     char *pcur = str;
     int tmp;
 
-    if (*pcur != '+')
+    if (*pcur == '+')
+        ++pcur;
+    else if (*pcur != '(')
         return false;
 
-    ++pcur;
-
-    tmp = strspn(pcur, DIGITS);
-    if (!tmp)
+    if (*pcur != '(')
+    {
+        tmp = strspn(pcur, DIGITS);
+        if (!tmp)
+            return false;
+        pcur += tmp;
+    }
+    else if (pcur != str)
         return false;
-
-    pcur += tmp;
 
     if (strlen(pcur) != 15)
         return false;
