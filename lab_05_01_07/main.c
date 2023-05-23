@@ -20,8 +20,8 @@ int process(FILE *f, unsigned *dst)
                 ++(*dst);
     }
 
-    if (last_els.filled_els == 0)
-        return NO_INPUT;
+    if (last_els.filled_els < 3)
+        return NO_INPUT - last_els.filled_els;
 
     return 0;
 }
