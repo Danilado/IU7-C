@@ -48,6 +48,6 @@ int variance_from_file(FILE *f, double *dst)
         variance += (tmp - avg) * (tmp - avg);
     }
 
-    *dst = variance / (double)(el_count - 1);
+    *dst = variance / (double)el_count;
     return 0;
 }
