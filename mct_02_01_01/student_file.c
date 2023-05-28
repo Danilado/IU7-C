@@ -25,11 +25,13 @@ size_t print_students_from_file(const char *filename)
         print_student(tmpstudent);
     }
 
-    fclose(in_file);
-
     if (!feof(in_file))
+    {
+        fclose(in_file);
         return -1;
+    }
 
+    fclose(in_file);
     return studentcount;
 }
 

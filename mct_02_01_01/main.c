@@ -6,6 +6,8 @@
 
 #define BAD_MODE_INPUT 5
 #define BAD_MODE 6
+#define BAD_FILE_END 7
+#define NOTHING_TO_OUTPUT 8
 
 #define MAX_FILENAME_LEN 256
 
@@ -38,7 +40,12 @@ int main(void)
     {
         rc = print_students_from_file(filename);
         // моя функция возвращает кол-во выведенных элементов
-        rc = !rc;
+        if (rc < 0)
+            rc = BAD_FILE_END;
+        else if (rc == 0)
+            rc = NOTHING_TO_OUTPUT;
+        else
+            rc = 0;
     }
     else if (mode == 3)
     {
