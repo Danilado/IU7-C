@@ -10,7 +10,7 @@ int student_input(student_s *s)
         return BAD_SURNAME;
 
     printf("Введите рост студента: ");
-    if (scanf("%" PRId32, &s->height) != 1 || s->height < 0)
+    if (scanf("%" SCNd32, &s->height) != 1 || s->height < 0)
         return BAD_HEIGHT;
 
     return 0;
