@@ -38,6 +38,8 @@ int print_file(args_s *args)
         return BAD_FILENAME;
 
     size_t numcount = get_element_amount(f);
+    if (numcount == 0)
+        return BAD_FILENAME;
 
     for (size_t i = 0; i < numcount; ++i)
     {
