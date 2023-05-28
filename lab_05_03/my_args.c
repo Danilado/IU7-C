@@ -15,21 +15,21 @@ int parse_args(int argc, char **argv, args_s *args)
             args->filename = argv[2];
             if (sscanf(argv[3], "%d", &args->number) != 1 || args->number <= 0)
                 return BAD_NUMBER;
-            break;
+            break;  
         case PRINT_MODE:
             if (argc > 3)
                 return TOO_MUCH_ARGS;
             args->mode = PRINT_MODE;
             args->filename = argv[2];
             args->number = 0;
-            break;
+            break;  
         case SORT_MODE:
             if (argc > 3)
                 return TOO_MUCH_ARGS;
             args->mode = SORT_MODE;
             args->filename = argv[2];
             args->number = 0;
-            break;
+            break;  
         default:
             return BAD_MODE;
     }

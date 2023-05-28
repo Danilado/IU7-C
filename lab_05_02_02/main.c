@@ -20,6 +20,8 @@ int main(int argc, char **argv)
     int rc;
     rc = variance_from_file(input_file, &variance);
 
+    fclose(input_file);
+
     if (rc)
         return rc;
 
