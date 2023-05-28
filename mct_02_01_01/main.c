@@ -22,12 +22,15 @@ int main(void)
 
     if (scanf("%d", &mode) != 1)
         return BAD_MODE_INPUT;
+    char buf;
+    scanf("%c", &buf);
 
     char filename[MAX_FILENAME_LEN + 1];
+
     printf("Введите имя файла\n> ");
     fgets(filename, MAX_FILENAME_LEN, stdin);
-    int rc;
 
+    int rc;
     if (mode == 1)
     {
         student_s s;

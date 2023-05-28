@@ -25,7 +25,7 @@ size_t print_students_from_file(const char *filename)
         print_student(tmpstudent);
     }
 
-    if (!feof(in_file))
+    if (feof(in_file))
     {
         fclose(in_file);
         return -1;
@@ -64,7 +64,8 @@ int remove_students_by_attr(const char *filename)
         read_student_from_file(&tmpstudent, f);
         avg_height += tmpstudent.height;
     }
-    if (!feof(f))
+
+    if (feof(f))
         return BAD_FILENAME;
 
     avg_height /= studentcount;
@@ -82,6 +83,9 @@ int remove_students_by_attr(const char *filename)
         if (tmpstudent.height > avg_height)
         {
             fseek(f, new_pos, SEEK_SET);
+            fwrite(tmpstudent.surname, sizeof(char), MAX_SURNAME_LEN + 1, f);
+            fwrite(&tmpstudent.height, sizeof(int), 1, f);
+            print_student(tmpstudent);
             new_pos = ftell(f);
             new_studet_count += 1;
             fseek(f, cur_pos, SEEK_SET);

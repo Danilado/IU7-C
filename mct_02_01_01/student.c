@@ -2,11 +2,14 @@
 
 int student_input(student_s *s)
 {
-    fgets(s->surname, MAX_SURNAME_LEN, stdin);
+    printf("Введите фамилию студента: ");
+    fgets(s->surname, MAX_SURNAME_LEN + 1, stdin);
+    s->surname[strcspn(s->surname, "\n")] = '\0';
 
     if (!strlen(s->surname))
         return BAD_SURNAME;
 
+    printf("Введите рост студента: ");
     if (scanf("%" PRId32, &s->height) != 1 || s->height < 0)
         return BAD_HEIGHT;
 
