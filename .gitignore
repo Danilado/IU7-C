@@ -13,4 +13,4 @@ out.*
 megatest.sh
 
 # Бинарные файлы
-.bin
+*.bin
