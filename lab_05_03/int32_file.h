@@ -15,7 +15,7 @@
 
 size_t get_element_amount(FILE *f);
 int get_element_by_index(FILE *f, size_t index, int32_t *dst);
-int set_element_by_index(FILE *f, size_t index, int32_t buf);
+int put_element_by_index(FILE *f, size_t index, int32_t buf);
 
 int create_file(args_s *args);
 int print_file(args_s *args);

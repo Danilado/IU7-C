@@ -54,6 +54,9 @@ int print_file(args_s *args)
     }
     printf("\n");
 
+    if (feof(f))
+        return READ_ERROR;
+
     fclose(f);
     return 0;
 }
@@ -64,6 +67,9 @@ int sort_file(args_s *args)
     if (f == NULL)
         return BAD_FILENAME;
     size_t numcount = get_element_amount(f);
+    fseek(f, 0, SEEK_END);
+    if (ftell(f) % sizeof(int32_t))
+        return READ_ERROR;
 
     for (size_t i = 0; i < numcount - 1; ++i)
     {
@@ -82,8 +88,8 @@ int sort_file(args_s *args)
 
             if (tmp1 > tmp2)
             {
-                rc = set_element_by_index(f, j, tmp2);
-                rc |= set_element_by_index(f, j + 1, tmp1);
+                rc = put_element_by_index(f, j, tmp2);
+                rc |= put_element_by_index(f, j + 1, tmp1);
             }
 
             if (rc)
@@ -106,7 +112,7 @@ int get_element_by_index(FILE *f, size_t index, int32_t *dst)
     return 0;
 }
 
-int set_element_by_index(FILE *f, size_t index, int32_t buf)
+int put_element_by_index(FILE *f, size_t index, int32_t buf)
 {
     fseek(f, sizeof(int32_t) * index, SEEK_SET);
     if (fwrite(&buf, sizeof(uint32_t), 1, f) != 1)
