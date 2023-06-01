@@ -301,13 +301,8 @@ int add_product_to_file(args_s *args)
 
 int init_product(product_s *prod)
 {
-    for (size_t i = 0; i < MAX_PRODNAME_LEN + 1; ++i)
+    for (size_t i = 0; i < sizeof(product_s); ++i)
         prod->name[i] = '\0';
-    for (size_t i = 0; i < MAX_MANUFACT_LEN + 1; ++i)
-        prod->manufacturer[i] = '\0';
-
-    prod->price = 0;
-    prod->amount = 0;
 
     return 0;
 }

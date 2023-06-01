@@ -24,18 +24,22 @@ int main(int argc, char **argv)
     {
         case SORT_MODE_CODE:
             rc = sort_products_in_file(&args);
+            
             if(rc)
                 return rc;
             break;
         case PRINT_MODE_CODE:
             rc = print_products_from_file(&args);
+            
             if(rc > 0)
                 return rc;
+            
             if(rc == 0)
                 return NOTHING_TO_OUTPUT;
             break;
         case ADD_MODE_CODE:
             rc = add_product_to_file(&args);
+            
             if(rc)
                 return rc;
             break;

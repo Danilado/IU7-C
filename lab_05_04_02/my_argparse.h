@@ -20,10 +20,11 @@
 #define TOO_MUCH_ARGS 3
 #define BAD_MODE 4
 
-typedef struct {
-  int mode;
-  char *arg1;
-  char *arg2;
+typedef struct
+{
+    int mode;
+    char *arg1;
+    char *arg2;
 } args_s;
 
 int my_argparse(int argc, char **argv, args_s *args);
