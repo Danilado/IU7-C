@@ -72,7 +72,6 @@ int sort_file(args_s *args)
         return READ_ERROR;
 
     for (size_t i = 0; i < numcount - 1; ++i)
-    {
         for (size_t j = 0; j < numcount - 1; ++j)
         {
             int rc;
@@ -98,7 +97,6 @@ int sort_file(args_s *args)
                 return WRITE_ERROR;
             }
         }
-    }
 
     fclose(f);
     return 0;
@@ -115,7 +113,7 @@ int get_element_by_index(FILE *f, size_t index, int32_t *dst)
 int put_element_by_index(FILE *f, size_t index, int32_t buf)
 {
     fseek(f, sizeof(int32_t) * index, SEEK_SET);
-    if (fwrite(&buf, sizeof(uint32_t), 1, f) != 1)
+    if (fwrite(&buf, sizeof(int32_t), 1, f) != 1)
         return 1;
     return 0;
 }
