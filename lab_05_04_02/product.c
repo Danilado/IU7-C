@@ -150,7 +150,10 @@ int print_products_from_file(args_s *args)
 
     int sublen = strlen(args->arg2);
     if (sublen > MAX_PRODNAME_LEN)
+    {
+        fclose(f);
         return SUBSTR_TOO_LONG;
+    }
 
     long fsize = filesize(f);
     if (fsize % sizeof(product_s))
@@ -168,7 +171,10 @@ int print_products_from_file(args_s *args)
         int rc;
         rc = fread(&tmp_prod, sizeof(product_s), 1, f);
         if (rc != 1)
+        {
+            fclose(f);
             return READ_ERROR;
+        }
 
         char substr[MAX_PRODNAME_LEN + 1];
         rc = copy_from_end(tmp_prod.name, sublen, substr);
@@ -181,7 +187,10 @@ int print_products_from_file(args_s *args)
         ++prntcount;
         rc = print_product(&tmp_prod);
         if (rc)
+        {
+            fclose(f);
             return PRINT_ERROR;
+        }
     }
 
     fclose(f);
