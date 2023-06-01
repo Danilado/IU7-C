@@ -1,7 +1,6 @@
 #!/bin/bash
 
 bash ./clean.sh
-bash ./func_tests/scripts/build_translator.sh
 
 echo DEBUG BUILD
 bash ./build_debug.sh
@@ -12,7 +11,6 @@ bash ./collect_coverage.sh
 echo
 
 bash ./clean.sh
-bash ./func_tests/scripts/build_translator.sh
 
 echo ADDRESS SANITIZER
 bash ./build_debug_asan.sh
@@ -20,7 +18,6 @@ bash ./func_tests/scripts/func_tests.sh
 echo
 
 bash ./clean.sh
-bash ./func_tests/scripts/build_translator.sh
 
 echo MEMORY SANITIZER
 bash ./build_debug_msan.sh
@@ -28,7 +25,6 @@ bash ./func_tests/scripts/func_tests.sh
 echo
 
 bash ./clean.sh
-bash ./func_tests/scripts/build_translator.sh
 
 echo UB SANITIZER
 bash ./build_debug_ubsan.sh
