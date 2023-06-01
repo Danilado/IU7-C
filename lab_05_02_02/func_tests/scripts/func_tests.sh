@@ -21,10 +21,10 @@ for FILE in ./func_tests/data/neg_*_in.txt; do
   echo -n NEG TEST "$num"
   if bash ./func_tests/scripts/neg_case.sh ./func_tests/data/neg_"${num}"_in.txt
   then
+    echo " PASSED"
+  else
     echo " FAILED"
     errcount=$((errcount+1))
-  else
-    echo " PASSED"
   fi
 done
 
