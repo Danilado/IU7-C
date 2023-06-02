@@ -7,13 +7,13 @@
 #   $4  :   ./func_tests/data/pos_file_"${num}"_in.bin
 #   $5  :   ./func_tests/data/pos_file_"${num}"_out.bin
 
-cmd="./app.exe $(cat $3)"
+cmd="./app.exe $(cat "$3")"
 
 if [ -f "$4" ]; then
   # expects binary output
   cp "$4" tmp.bin
   
-  if ! $cmd ./tmp.bin < $1 >./out.txt ; then
+  if ! $cmd ./tmp.bin < "$1" >./out.txt ; then
     exit 1
   fi
   
@@ -25,7 +25,7 @@ if [ -f "$4" ]; then
 else
   # expects regular output
   
-  if ! $cmd < $1 >./out.txt ; then
+  if ! $cmd < "$1" >./out.txt ; then
     exit 1
   fi
   

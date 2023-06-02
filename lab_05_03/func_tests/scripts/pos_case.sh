@@ -7,7 +7,7 @@
 #   $4  :   ./func_tests/data/pos_file_"${num}"_in.bin
 #   $5  :   ./func_tests/data/pos_file_"${num}"_out.bin
 
-cmd="./app.exe $(cat $3)"
+cmd="./app.exe $(cat "$3")"
 
 if [ -f "$4" ]; then
   # expects binary output
