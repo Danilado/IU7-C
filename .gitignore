@@ -11,6 +11,3 @@ out.*
 *.gcda
 *.gcno
 megatest.sh
-
-# Бинарные файлы
-*.bin
