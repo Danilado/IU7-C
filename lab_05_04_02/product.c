@@ -120,6 +120,7 @@ int copy_from_end(char *restrict src, size_t len, char *restrict dst)
         return 1;
 
     strncpy(dst, src + srclen - len, len);
+    dst[len] = '\0';
 
     return 0;
 }
@@ -275,6 +276,8 @@ int add_product_to_file(args_s *args)
             target_index = i;
     }
 
+    printf("target: %zu\n", target_index);
+
     if (target_index < 0)
         target_index = prodcount;
 
@@ -310,8 +313,8 @@ int add_product_to_file(args_s *args)
 
 int init_product(product_s *prod)
 {
-    for (size_t i = 0; i < sizeof(product_s); ++i)
-        prod->name[i] = '\0';
+    for (char *p = prod->name; (p - prod->name) < (long)sizeof(product_s); ++p)
+        *p = '\0';
 
     return 0;
 }
