@@ -32,7 +32,7 @@ int sort_products_in_file(args_s *args);
 int get_element_by_index(FILE *f, size_t index, product_s *dst);
 int put_element_by_index(FILE *f, size_t index, product_s buf);
 size_t prods_in_file(FILE *f);
-int filesize(FILE *f);
+long filesize(FILE *f);
 int print_products_from_file(args_s *args);
 int print_product(product_s *prod);
 int add_product_to_file(args_s *args);

@@ -9,7 +9,7 @@ int prod_comparator(product_s const *p1, product_s const *p2)
     return 1;
 }
 
-int filesize(FILE *f)
+long filesize(FILE *f)
 {
     long cur_pos = ftell(f);
     fseek(f, 0, SEEK_END);
@@ -83,8 +83,8 @@ int sort_products_in_file(args_s *args)
     fclose(fin);
     fseek(fout, 0, SEEK_SET);
 
-    for (size_t i = 0; i < prodcount - 1; ++i)
-        for (size_t j = 0; j < prodcount - 1; ++j)
+    for (size_t i = 0; i < prodcount; ++i)
+        for (size_t j = 0; j < prodcount - 1 - i; ++j)
         {
             product_s tmp1, tmp2;
             rc = get_element_by_index(fout, j, &tmp1);
