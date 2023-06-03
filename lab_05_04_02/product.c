@@ -276,8 +276,6 @@ int add_product_to_file(args_s *args)
             target_index = i;
     }
 
-    printf("target: %zu\n", target_index);
-
     if (target_index < 0)
         target_index = prodcount;
 
