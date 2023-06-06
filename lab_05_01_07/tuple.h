@@ -12,7 +12,7 @@ typedef struct
     int filled_els;
 } tuple;
 
-int push_ino_tuple(tuple *t, int value);
+int push_into_tuple(tuple *t, int value);
 int init_tuple(tuple *t);
 
 #endif

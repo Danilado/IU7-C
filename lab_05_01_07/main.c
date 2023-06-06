@@ -14,7 +14,7 @@ int process(FILE *f, unsigned *dst)
     int tmp;
     while (fscanf(f, "%d", &tmp) == 1)
     {
-        push_ino_tuple(&last_els, tmp);
+        push_into_tuple(&last_els, tmp);
         if (last_els.filled_els == 3)
             if (last_els.cur > last_els.prev && last_els.cur > last_els.next)
                 ++(*dst);

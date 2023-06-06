@@ -6,7 +6,7 @@ int init_tuple(tuple *t)
     return 0;
 }
 
-int push_ino_tuple(tuple *t, int value)
+int push_into_tuple(tuple *t, int value)
 {
     if (t->filled_els != 3)
     {
