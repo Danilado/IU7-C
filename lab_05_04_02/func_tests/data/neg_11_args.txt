@@ -1,0 +1,1 @@
+sb ./pepega ./zuzuga ./out ./in ./gde

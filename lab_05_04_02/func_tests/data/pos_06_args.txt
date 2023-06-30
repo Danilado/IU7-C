@@ -1,0 +1,1 @@
+fb ./func_tests/data/pos_file_06.bin 1
