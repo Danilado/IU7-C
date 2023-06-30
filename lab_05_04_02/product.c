@@ -4,7 +4,7 @@ int prod_comparator(product_s const *p1, product_s const *p2)
 {
     if (p1->price > p2->price)
         return 0;
-    if (p1->price == p2->price && p1->amount > p2->amount)
+    if (p1->price == p2->price && p1->amount >= p2->amount)
         return 0;
     return 1;
 }
