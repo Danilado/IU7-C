@@ -1,0 +1,6 @@
+shtangencircul1
+10.0
+10.0
+shtangencircul2
+a
+10.0

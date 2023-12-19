@@ -1,0 +1,9 @@
+shtangencircul5
+20.000000
+50.000000
+shtangencircul6
+60.000000
+60.000000
+shtangencircul7
+140.000000
+70.000000
