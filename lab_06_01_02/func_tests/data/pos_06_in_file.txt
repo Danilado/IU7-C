@@ -1,0 +1,9 @@
+shtangencircul5
+50.0
+50.0
+shtangencircul6
+60.0
+60.0
+shtangencircul7
+70.0
+70.0
