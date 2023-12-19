@@ -1,0 +1,9 @@
+shtangencircul5
+20.0
+50.0
+shtingencircul6
+60.0
+60.0
+shtongencircul7
+140.0
+70.0
