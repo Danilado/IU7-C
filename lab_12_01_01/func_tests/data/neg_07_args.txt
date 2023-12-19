@@ -1,0 +1,1 @@
+./func_tests/data/neg_07_in_file.txt ./out.txt
