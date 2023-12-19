@@ -12,6 +12,7 @@ out.*
 *.gcno
 megatest.sh
 
+# Билды и библиотеки
 *.d
 *.a
 *.so
