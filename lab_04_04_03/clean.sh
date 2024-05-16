@@ -1,3 +1,1 @@
-#!/bin/bash
-
-rm -f ./*.exe ./*.o ./*.gcov ./*.gcno ./*.gcda out.txt
+../lab_04_03_01/clean.sh

@@ -1,9 +1,1 @@
-#!/bin/bash
-
-cmd="./app.exe $2"
-
-if $cmd<"$1">/dev/null; then
-  exit 1
-fi
-
-exit 0
+../../../lab_05_03/func_tests/scripts/neg_case.sh

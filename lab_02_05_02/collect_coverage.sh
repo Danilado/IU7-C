@@ -1,3 +1,1 @@
-#!/bin/bash
-
-gcov -r main.c
+../lab_02_03_03/collect_coverage.sh

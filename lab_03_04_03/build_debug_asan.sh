@@ -1,8 +1,1 @@
-#!/bin/bash
-
-clang main.c matrix.c \
--Wall -Werror -Wpedantic -Wextra -Wvla \
--std=c99 -c -Og -g3 \
--fsanitize=address -fno-omit-frame-pointer
-
-clang -lm -fsanitize=address -fno-omit-frame-pointer main.o matrix.o -o app.exe
+../lab_03_02_03/build_debug_asan.sh
